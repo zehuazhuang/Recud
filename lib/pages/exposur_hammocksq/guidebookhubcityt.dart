@@ -33,7 +33,7 @@ class _GuidebookHubcityt extends State<GuidebookHubcityt> {
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Color(0xff292365).withOpacity(0.5), Color(0xff532f64)],
+                colors: [Color(0xff292365), Color(0xff532f64)],
                 begin: Alignment(0, 1),
                 end: Alignment(0, -1),
               ),
@@ -100,36 +100,41 @@ class _GuidebookHubcityt extends State<GuidebookHubcityt> {
                             ),
                           ],
                         ),
+                      ],
+                    ),
+                  ),
+                  Container(height: 97, color: Colors.transparent),
 
-                        Material(
-                          color: Color(0xff4d5260).withOpacity(0.5),
-                          shape: const CircleBorder(),
-                          child: InkWell(
-                            customBorder: const CircleBorder(),
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
-                            child: SizedBox(
-                              width: 40,
-                              height: 40,
-                              child: DecoratedBox(
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                      'assets/images/iaudhiucd.png',
-                                    ),
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
+                  Center(
+                    child: Flex(
+                      direction: Axis.vertical,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        SizedBox(
+                          width: 97,
+                          height: 97,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('assets/images/qhiushdk.png'),
+                                fit: BoxFit.cover,
                               ),
                             ),
+                          ),
+                        ),
+                        Container(height: 16, color: Colors.transparent),
+                        Text(
+                          textAlign: TextAlign.center,
+                          'Sorry, there is no content yet.',
+                          style: GoogleFonts.roboto(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xFF958cc1),
                           ),
                         ),
                       ],
                     ),
                   ),
-                  Container(height: 26, color: Colors.transparent),
-          
                 ],
               ),
             ),
@@ -138,6 +143,4 @@ class _GuidebookHubcityt extends State<GuidebookHubcityt> {
       ),
     );
   }
-
-
 }

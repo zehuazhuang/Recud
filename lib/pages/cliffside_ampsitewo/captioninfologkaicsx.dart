@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:overlay_support/overlay_support.dart';
+import 'package:recud/papilserializngj/miragenotebookgj.dart';
+import 'package:recud/papilserializngj/mountainsidehive.dart';
 
 class CaptioninfoLogkaicsx extends StatefulWidget {
   const CaptioninfoLogkaicsx({super.key});
@@ -9,7 +12,14 @@ class CaptioninfoLogkaicsx extends StatefulWidget {
 }
 
 class _CaptioninfoLogkaicsx extends State<CaptioninfoLogkaicsx> {
-  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _sertspringc = TextEditingController(
+    text: getArchipelagoUser(
+      PassporTouting().getBox('ketchloguid').get('ouveniruid'),
+    )["rangerlogming"],
+  );
+  String? _romontoryimg = getArchipelagoUser(
+    PassporTouting().getBox('ketchloguid').get('ouveniruid'),
+  )["placemarktou"];
   @override
   void dispose() {
     super.dispose();
@@ -90,36 +100,51 @@ class _CaptioninfoLogkaicsx extends State<CaptioninfoLogkaicsx> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(height: 56, color: Colors.transparent),
-                  Stack(
-                    alignment: Alignment.bottomRight,
-                    children: [
-                      Container(
-                        width: 125,
-                        height: 125,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Color(0xffffffff),
-                            width: 4,
-                          ),
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                            image: AssetImage('assets/images/aisncuicon.png'),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 40,
-                        height: 40,
-                        child: DecoratedBox(
+                  GestureDetector(
+                    behavior: HitTestBehavior.translucent,
+                    onTap: () async {
+                   final gebasiny = await promenadeImgOrVdo('1', context);
+
+                      if (gebasiny != null) {
+
+                        _romontoryimg = gebasiny;
+                        setState(() {});
+                      }
+                    },
+                    child: Stack(
+                      alignment: Alignment.bottomRight,
+                      children: [
+                        Container(
+                          width: 125,
+                          height: 125,
                           decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Color(0xffffffff),
+                              width: 4,
+                            ),
+                            shape: BoxShape.circle,
                             image: DecorationImage(
-                              image: AssetImage('assets/images/owefiuahij.png'),
-                              fit: BoxFit.cover,
+                              image: AssetImage(_romontoryimg!),
+                              fit: BoxFit.cover
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                        SizedBox(
+                          width: 40,
+                          height: 40,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  'assets/images/owefiuahij.png',
+                                ),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   Container(height: 47, color: Colors.transparent),
 
@@ -145,7 +170,7 @@ class _CaptioninfoLogkaicsx extends State<CaptioninfoLogkaicsx> {
                     alignment: Alignment.center,
                     padding: EdgeInsets.symmetric(horizontal: 16),
                     child: TextField(
-                      controller: _emailController,
+                      controller: _sertspringc,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: 'Enter the username',
@@ -169,7 +194,27 @@ class _CaptioninfoLogkaicsx extends State<CaptioninfoLogkaicsx> {
                     width: MediaQuery.sizeOf(context).width,
                     height: 49,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+
+                        await anggrowthelod();
+                        final bouleplazauid =
+                            PassporTouting()
+                                .getBox('ketchloguid')
+                                .get('ouveniruid') -
+                            1;
+
+                        var strasoundit = PassporTouting()
+                            .getBox('milestoneusers')
+                            .getAt(bouleplazauid);
+                        strasoundit["rangerlogming"] = _sertspringc.text;
+                        strasoundit["placemarktou"] = _romontoryimg;
+                        await PassporTouting()
+                            .getBox('milestoneusers')
+                            .putAt(bouleplazauid, strasoundit);
+
+
+                        toast('Personal details updated successfully.');
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xffFE6A5D),
                         shape: RoundedRectangleBorder(
@@ -190,7 +235,7 @@ class _CaptioninfoLogkaicsx extends State<CaptioninfoLogkaicsx> {
                       ),
                     ),
                   ),
-                  Container(height: 50,color: Colors.transparent),
+                  Container(height: 50, color: Colors.transparent),
                 ],
               ),
             ),

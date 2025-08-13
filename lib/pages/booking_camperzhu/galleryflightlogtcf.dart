@@ -1,7 +1,10 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:recud/pages/booking_camperzhu/embarkdrivewaym.dart';
+import 'package:recud/papilserializngj/mountainsidehive.dart';
 
 class GalleryfligHtlogtcf extends StatefulWidget {
   const GalleryfligHtlogtcf({super.key});
@@ -77,7 +80,7 @@ class _GalleryfligHtlogtcf extends State<GalleryfligHtlogtcf> {
                   ),
                   Flex(
                     direction: Axis.vertical,
-              
+
                     children: [
                       Transform.translate(
                         offset: Offset(0, -16),
@@ -99,7 +102,7 @@ class _GalleryfligHtlogtcf extends State<GalleryfligHtlogtcf> {
                           ),
                         ),
                       ),
-              
+
                       Transform.translate(
                         offset: Offset(15, -5),
                         child: Transform(
@@ -121,7 +124,7 @@ class _GalleryfligHtlogtcf extends State<GalleryfligHtlogtcf> {
                         ),
                       ),
                       Container(height: 18, color: Colors.transparent),
-              
+
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -152,12 +155,22 @@ class _GalleryfligHtlogtcf extends State<GalleryfligHtlogtcf> {
                         ),
                       ),
                       Container(height: 18, color: Colors.transparent),
-              
+
                       SizedBox(
                         width: 235,
                         height: 49,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () async {
+                             final pierjettyuid = PassporTouting().getBox('ketchloguid').get('ouveniruid') - 1;
+                             var traruins = PassporTouting().getBox('milestoneusers').getAt(pierjettyuid);
+                            if(traruins["ightlogwsdjin"]>=200){
+                             traruins["ightlogwsdjin"] -= 200;
+                              await PassporTouting().getBox('milestoneusers').putAt(pierjettyuid, traruins);
+                              Navigator.pop(context,true);
+                            }else{
+                              Get.dialog(EmbarkdrIvewaym());
+                            }
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color(0xfffe6a5d),
                             shape: RoundedRectangleBorder(
@@ -184,16 +197,25 @@ class _GalleryfligHtlogtcf extends State<GalleryfligHtlogtcf> {
               ),
             ),
           ),
-          Container(height: 30,color: Colors.transparent),
-          Container(
-            width: 40,
-            height: 40,
-            decoration: BoxDecoration(
-              border: Border.all(color: Color(0XFFFFFFFF).withOpacity(0.5),width: 2),
-              shape: BoxShape.circle
+          Container(height: 30, color: Colors.transparent),
+          GestureDetector(
+            behavior: HitTestBehavior.translucent,
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Color(0XFFFFFFFF).withOpacity(0.5),
+                  width: 2,
+                ),
+                shape: BoxShape.circle,
+              ),
+              child: Icon(Icons.close, color: Color(0xffffffff)),
             ),
-            child: Icon(Icons.close,color: Color(0xffffffff),),
-          )
+          ),
         ],
       ),
     );

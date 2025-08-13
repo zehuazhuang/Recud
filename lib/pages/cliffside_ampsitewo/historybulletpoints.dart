@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:recud/papilserializngj/miragenotebookgj.dart';
+import 'package:recud/papilserializngj/mountainsidehive.dart';
 
 class HistorybulLetpoints extends StatefulWidget {
-  const HistorybulLetpoints({super.key});
+  const HistorybulLetpoints({super.key, required this.boutderpass});
+
+  final String boutderpass;
 
   @override
   State<HistorybulLetpoints> createState() => _HistorybulLetpoints();
@@ -21,6 +25,9 @@ class _HistorybulLetpoints extends State<HistorybulLetpoints> {
 
   @override
   Widget build(BuildContext context) {
+    final uneoasislog = getArchipelagoUser(
+      PassporTouting().getBox('ketchloguid').get('ouveniruid'),
+    );
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
@@ -71,7 +78,11 @@ class _HistorybulLetpoints extends State<HistorybulLetpoints> {
                   ),
                 ),
                 title: Text(
-                  'Blacklist',
+                  widget.boutderpass == '1'
+                      ? 'Blacklist'
+                      : widget.boutderpass == '2'
+                      ? 'Following'
+                      : 'Followers',
                   style: GoogleFonts.roboto(
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
@@ -83,12 +94,61 @@ class _HistorybulLetpoints extends State<HistorybulLetpoints> {
             ),
             body: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 21),
-              child: Wrap(
-                runSpacing: 16,
-                children: [
-                  Container(height: 4,color: Colors.transparent),
-                  for (var recud in ["1", "2"]) _ledgerbookj(recud),
-                ],
+              child: Builder(
+                builder: (context) {
+                  final slepertrainji = PassporTouting()
+                      .getBox(PassporTouting().minibusUsers)
+                      .values
+                      .where((recud) {
+                        if (widget.boutderpass == '1') {
+                          return uneoasislog["scrapbookblock"].contains(
+                            recud["packlistuid"],
+                          );
+                        } else if (widget.boutderpass == '2') {
+                          return uneoasislog["ticketstubguan"].contains(
+                                recud["packlistuid"],
+                              ) &&
+                              !getArchipelagoUser(
+                                PassporTouting()
+                                    .getBox('ketchloguid')
+                                    .get('ouveniruid'),
+                              )["scrapbookblock"].contains(
+                                recud["packlistuid"],
+                              );
+                        } else {
+                          return uneoasislog["dwayviewcjdfen"].contains(
+                                recud["packlistuid"],
+                              ) &&
+                              !getArchipelagoUser(
+                                PassporTouting()
+                                    .getBox('ketchloguid')
+                                    .get('ouveniruid'),
+                              )["scrapbookblock"].contains(
+                                recud["packlistuid"],
+                              );
+                        }
+                      });
+
+                  if (slepertrainji.isEmpty) {
+                    return Center(
+                      child: Text(
+                        'Sorry, there is no content yet.',
+                        style: GoogleFonts.roboto(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF958CC1),
+                        ),
+                      ),
+                    );
+                  }
+                  return Wrap(
+                    runSpacing: 16,
+                    children: [
+                      Container(height: 4, color: Colors.transparent),
+                      for (var recud in slepertrainji) _ledgerbookj(recud),
+                    ],
+                  );
+                },
               ),
             ),
           ),
@@ -117,7 +177,7 @@ class _HistorybulLetpoints extends State<HistorybulLetpoints> {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                    image: AssetImage('assets/images/aisncuicon.png'),
+                    image: AssetImage(recud["placemarktou"]),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -125,7 +185,7 @@ class _HistorybulLetpoints extends State<HistorybulLetpoints> {
             ),
             Container(width: 8, color: Colors.transparent),
             Text(
-              'Montague Terry',
+              recud["rangerlogming"],
               style: GoogleFonts.roboto(
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
@@ -133,26 +193,83 @@ class _HistorybulLetpoints extends State<HistorybulLetpoints> {
               ),
             ),
             Spacer(),
-            SizedBox(
-              width: 96,
-              height: 36,
-              child: ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xff9870CF),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(36),
+            Builder(
+              builder: (context) {
+                if (widget.boutderpass == '1') {
+                  return SizedBox(
+                    width: 96,
+                    height: 36,
+                    child: ElevatedButton(
+                      onPressed: () async {
+                        final amaroundauid =
+                            PassporTouting()
+                                .getBox('ketchloguid')
+                                .get('ouveniruid') -
+                            1;
+
+                        var lifotorhomt = PassporTouting()
+                            .getBox('milestoneusers')
+                            .getAt(amaroundauid);
+
+                        lifotorhomt["scrapbookblock"].remove(
+                          recud["packlistuid"],
+                        );
+
+                        await PassporTouting()
+                            .getBox('milestoneusers')
+                            .putAt(amaroundauid, lifotorhomt);
+
+                        setState(() {});
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xff9870CF),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(36),
+                        ),
+                      ),
+                      child: Text(
+                        'Remove',
+                        style: GoogleFonts.roboto(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xFFffffff),
+                        ),
+                      ),
+                    ),
+                  );
+                }
+
+                bool leboaomenad = getArchipelagoUser(
+                  PassporTouting().getBox('ketchloguid').get('ouveniruid'),
+                )["ticketstubguan"].contains(recud["packlistuid"]);
+
+                return SizedBox(
+                  width: 125,
+                  height: 40,
+                  child: ElevatedButton(
+                    onPressed: () async {
+                      await bipalpinistfo(recud["packlistuid"]);
+                      setState(() {});
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xff4F4073),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(56),
+                      ),
+                    ),
+                    child: Center(
+                      child: Text(
+                        leboaomenad ? '- Followed' : '+ Follow',
+                        style: GoogleFonts.roboto(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xFF958cc1),
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-                child: Text(
-                  'Remove',
-                  style: GoogleFonts.roboto(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xFFffffff),
-                  ),
-                ),
-              ),
+                );
+              },
             ),
           ],
         ),

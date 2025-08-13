@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
+import 'package:overlay_support/overlay_support.dart';
+import 'package:recud/pages/booking_camperzhu/galleryflightlogtcf.dart';
+import 'package:recud/papilserializngj/miragenotebookgj.dart';
 
 class UntrysidcaRgcaanq extends StatefulWidget {
   const UntrysidcaRgcaanq({super.key});
@@ -9,8 +14,12 @@ class UntrysidcaRgcaanq extends StatefulWidget {
 }
 
 class _UntrysidcaRgcaanq extends State<UntrysidcaRgcaanq> {
-  final TextEditingController _emailController = TextEditingController();
-  bool beaconxz = false;
+  final TextEditingController _houplandmdest = TextEditingController();
+  final TextEditingController _meichronpstart = TextEditingController();
+  final TextEditingController _vardlevardstop = TextEditingController();
+  final TextEditingController _piadesaccdesc = TextEditingController();
+  String? _sakechmerimg;
+  bool _beaconxz = false;
   @override
   void dispose() {
     super.dispose();
@@ -19,6 +28,14 @@ class _UntrysidcaRgcaanq extends State<UntrysidcaRgcaanq> {
   @override
   void initState() {
     super.initState();
+  }
+
+  Future<void> _kaguseway() async {
+    await anggrowthelod();
+    Navigator.pop(context);
+    toast(
+      'The file has been uploaded. You can see it after the review is completed.',
+    );
   }
 
   @override
@@ -35,7 +52,7 @@ class _UntrysidcaRgcaanq extends State<UntrysidcaRgcaanq> {
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Color(0xff292365).withOpacity(0.1), Color(0xff532f64)],
+                colors: [Color(0xff261C3F), Color(0xff261C3F)],
                 begin: Alignment(0, 1),
                 end: Alignment(0, -1),
               ),
@@ -95,7 +112,7 @@ class _UntrysidcaRgcaanq extends State<UntrysidcaRgcaanq> {
                           alignment: Alignment.center,
                           padding: EdgeInsets.symmetric(horizontal: 16),
                           child: TextField(
-                            controller: _emailController,
+                            controller: _houplandmdest,
                             decoration: InputDecoration(
                               border: InputBorder.none,
                               hintText: 'Fill in the travel destination',
@@ -137,7 +154,7 @@ class _UntrysidcaRgcaanq extends State<UntrysidcaRgcaanq> {
                                 alignment: Alignment.center,
                                 padding: EdgeInsets.symmetric(horizontal: 16),
                                 child: TextField(
-                                  controller: _emailController,
+                                  controller: _meichronpstart,
                                   textAlign: TextAlign.center,
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
@@ -147,7 +164,6 @@ class _UntrysidcaRgcaanq extends State<UntrysidcaRgcaanq> {
                                       fontWeight: FontWeight.w400,
                                       color: Color(0xFF958cc1),
                                     ),
-
                                     prefixIconConstraints: BoxConstraints(
                                       minWidth: 0,
                                       minHeight: 0,
@@ -155,6 +171,22 @@ class _UntrysidcaRgcaanq extends State<UntrysidcaRgcaanq> {
                                   ),
                                   style: TextStyle(color: Colors.white),
                                   cursorColor: Colors.white,
+                                  readOnly: true,
+                                  onTap: () async {
+                                    DateTime? pickedDate = await showDatePicker(
+                                      context: context,
+                                      initialDate: DateTime.now(),
+                                      firstDate: DateTime(1900),
+                                      lastDate: DateTime(2100),
+                                    );
+
+                                    if (pickedDate != null) {
+                                      String formattedDate = DateFormat(
+                                        'MM/dd/yyyy',
+                                      ).format(pickedDate);
+                                      _meichronpstart.text = formattedDate;
+                                    }
+                                  },
                                 ),
                               ),
                             ),
@@ -181,7 +213,7 @@ class _UntrysidcaRgcaanq extends State<UntrysidcaRgcaanq> {
                                 alignment: Alignment.center,
                                 padding: EdgeInsets.symmetric(horizontal: 16),
                                 child: TextField(
-                                  controller: _emailController,
+                                  controller: _vardlevardstop,
                                   textAlign: TextAlign.center,
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
@@ -191,7 +223,6 @@ class _UntrysidcaRgcaanq extends State<UntrysidcaRgcaanq> {
                                       fontWeight: FontWeight.w400,
                                       color: Color(0xFF958cc1),
                                     ),
-
                                     prefixIconConstraints: BoxConstraints(
                                       minWidth: 0,
                                       minHeight: 0,
@@ -199,6 +230,21 @@ class _UntrysidcaRgcaanq extends State<UntrysidcaRgcaanq> {
                                   ),
                                   style: TextStyle(color: Colors.white),
                                   cursorColor: Colors.white,
+                                  readOnly: true,
+                                  onTap: () async {
+                                    DateTime? pickedDate = await showDatePicker(
+                                      context: context,
+                                      initialDate: DateTime.now(),
+                                      firstDate: DateTime(1900),
+                                      lastDate: DateTime(2100),
+                                    );
+                                    if (pickedDate != null) {
+                                      String formattedDate = DateFormat(
+                                        'MM/dd/yyyy',
+                                      ).format(pickedDate);
+                                      _vardlevardstop.text = formattedDate;
+                                    }
+                                  },
                                 ),
                               ),
                             ),
@@ -225,7 +271,7 @@ class _UntrysidcaRgcaanq extends State<UntrysidcaRgcaanq> {
                           padding: EdgeInsets.symmetric(horizontal: 16),
                           child: TextField(
                             maxLines: 3,
-                            controller: _emailController,
+                            controller: _piadesaccdesc,
                             decoration: InputDecoration(
                               border: InputBorder.none,
                               hintText: 'Fill in the detailed content',
@@ -247,50 +293,87 @@ class _UntrysidcaRgcaanq extends State<UntrysidcaRgcaanq> {
                         Container(height: 26, color: Colors.transparent),
                         Align(
                           alignment: Alignment.centerLeft,
-                          child: Container(
-                            width: 96,
-                            height: 96,
-                            decoration: BoxDecoration(
-                              color: Color(0xff392c59),
-                              borderRadius: BorderRadius.circular(16),
-                            ),
+                          child: GestureDetector(
+                            behavior: HitTestBehavior.translucent,
+                            onTap: () async {
+                              _sakechmerimg = await promenadeImgOrVdo(
+                                '1',
+                                context,
+                              );
 
-                            child: Stack(
-                              children: [
-                                Center(
-                                  child: SizedBox(
-                                    width: 30,
-                                    height: 30,
-                                    child: DecoratedBox(
-                                      decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                            'assets/images/fioqhuih_add.png',
+                              if (_sakechmerimg != null) {
+                                setState(() {});
+                              }
+                            },
+                            child: Container(
+                              width: 96,
+                              height: 96,
+                              decoration: BoxDecoration(
+                                color: Color(0xff392c59),
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+
+                              child: Stack(
+                                children: [
+                                  Center(
+                                    child: SizedBox(
+                                      width: 30,
+                                      height: 30,
+                                      child: DecoratedBox(
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                              'assets/images/fioqhuih_add.png',
+                                            ),
+                                            fit: BoxFit.cover,
                                           ),
-                                          fit: BoxFit.cover,
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
-                                Align(
-                                  alignment: Alignment.topRight,
-                                  child: Container(
-                                    width: 20,
-                                    height: 20,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Color(0xfffe6a5d),
+                                  if (_sakechmerimg != null)
+                                    SizedBox(
+                                      width: 96,
+                                      height: 96,
+                                      child: DecoratedBox(
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(
+                                            16,
+                                          ),
+                                          image: DecorationImage(
+                                            image: AssetImage(_sakechmerimg!),
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
                                     ),
-                                    alignment: Alignment.center,
-                                    child: Container(
-                                      width: 6,
-                                      height: 1.5,
-                                      color: Color(0xffffffff),
+
+                                  Align(
+                                    alignment: Alignment.topRight,
+                                    child: GestureDetector(
+                                      behavior: HitTestBehavior.translucent,
+                                      onTap: () {
+                                        _sakechmerimg = null;
+                                        setState(() {});
+                                      },
+                                      child: Container(
+                                        width: 20,
+                                        height: 20,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Color(0xfffe6a5d),
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: Container(
+                                          width: 6,
+                                          height: 1.5,
+                                          color: Color(0xffffffff),
+                                        ),
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -339,12 +422,12 @@ class _UntrysidcaRgcaanq extends State<UntrysidcaRgcaanq> {
                                     ),
                                   ),
                                   Checkbox(
-                                    value: beaconxz,
+                                    value: _beaconxz,
                                     activeColor: Color(0xffFE6A5D),
                                     checkColor: Colors.white,
                                     onChanged: (value) {
                                       setState(() {
-                                        beaconxz = !beaconxz;
+                                        _beaconxz = !_beaconxz;
                                       });
                                     },
                                   ),
@@ -413,7 +496,24 @@ class _UntrysidcaRgcaanq extends State<UntrysidcaRgcaanq> {
                           width: 325,
                           height: 49,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              if (_houplandmdest.text == '' ||
+                                  _meichronpstart.text == '' ||
+                                  _vardlevardstop.text == '' ||
+                                  _piadesaccdesc.text == '' ||
+                                  _sakechmerimg == null) {
+                                toast('Please complete all content');
+                                return;
+                              }
+
+                              if (_beaconxz) {
+                                Get.dialog(GalleryfligHtlogtcf()).then((value) {
+                                  _kaguseway();
+                                });
+                              } else {
+                                _kaguseway();
+                              }
+                            },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Color(0xfffe6a5d),
                               shape: RoundedRectangleBorder(

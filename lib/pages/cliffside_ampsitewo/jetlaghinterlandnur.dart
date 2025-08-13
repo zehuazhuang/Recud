@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:overlay_support/overlay_support.dart';
+import 'package:recud/papilserializngj/miragenotebookgj.dart';
 
 class JetlaghintErlandnur extends StatefulWidget {
   const JetlaghintErlandnur({super.key});
@@ -9,7 +11,9 @@ class JetlaghintErlandnur extends StatefulWidget {
 }
 
 class _JetlaghintErlandnur extends State<JetlaghintErlandnur> {
-  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _escapadefan = TextEditingController();
+  String _avanserai = '';
+
   @override
   void dispose() {
     super.dispose();
@@ -25,12 +29,16 @@ class _JetlaghintErlandnur extends State<JetlaghintErlandnur> {
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
-        FocusScope.of(context).unfocus();
-        FocusManager.instance.primaryFocus?.unfocus();
+        Navigator.pop(context);
       },
-      child: Scaffold(
-        body: Align(
-          alignment: Alignment.bottomCenter,
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: GestureDetector(
+          behavior: HitTestBehavior.translucent,
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: SizedBox(
             width: MediaQuery.sizeOf(context).width,
             height: 567,
@@ -79,6 +87,7 @@ class _JetlaghintErlandnur extends State<JetlaghintErlandnur> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 21),
                       child: ListView(
+                        primary: false,
                         padding: EdgeInsets.all(0),
                         children: [
                           Wrap(
@@ -103,7 +112,7 @@ class _JetlaghintErlandnur extends State<JetlaghintErlandnur> {
                                 padding: EdgeInsets.symmetric(horizontal: 16),
                                 child: TextField(
                                   maxLines: 4,
-                                  controller: _emailController,
+                                  controller: _escapadefan,
                                   textInputAction: TextInputAction.done,
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
@@ -131,7 +140,12 @@ class _JetlaghintErlandnur extends State<JetlaghintErlandnur> {
                             width: MediaQuery.sizeOf(context).width,
                             height: 49,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () async {
+                                await anggrowthelod();
+
+                                Navigator.pop(context);
+                                toast('Your feedback is greatly valued, and we will give it due consideration to enhance our work.');
+                              },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Color(0xffFE6A5D),
                                 shape: RoundedRectangleBorder(
@@ -166,20 +180,31 @@ class _JetlaghintErlandnur extends State<JetlaghintErlandnur> {
   }
 
   Widget _compassrepro(recud) {
-    return Container(
-      width: MediaQuery.sizeOf(context).width,
-      height: 45,
-      decoration: BoxDecoration(
-        color: Color(0xff392c59),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      alignment: Alignment.center,
-      child: Text(
-        recud,
-        style: GoogleFonts.roboto(
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
-          color: Color(0xFF958CC1),
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _avanserai =recud;
+        });
+      },
+      child: Container(
+        width: MediaQuery.sizeOf(context).width,
+        height: 43,
+        decoration: BoxDecoration(
+          color: 
+          _avanserai ==recud?Color(0xff7c77da):
+          Color(0xff392c59),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        alignment: Alignment.center,
+        child: Text(
+          recud,
+          style: GoogleFonts.roboto(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            color: 
+            _avanserai ==recud?Color(0xffffffff):
+            Color(0xFF958CC1),
+          ),
         ),
       ),
     );

@@ -1,7 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:recud/pages/cliffside_ampsitewo/analysislogentrysdq.dart';
 
 class EmbarkdrIvewaym extends StatefulWidget {
   const EmbarkdrIvewaym({super.key});
@@ -77,7 +79,7 @@ class _EmbarkdrIvewaym extends State<EmbarkdrIvewaym> {
                   ),
                   Flex(
                     direction: Axis.vertical,
-              
+
                     children: [
                       Transform.translate(
                         offset: Offset(0, -16),
@@ -99,7 +101,7 @@ class _EmbarkdrIvewaym extends State<EmbarkdrIvewaym> {
                           ),
                         ),
                       ),
-              
+
                       Transform.translate(
                         offset: Offset(15, -5),
                         child: Transform(
@@ -121,7 +123,7 @@ class _EmbarkdrIvewaym extends State<EmbarkdrIvewaym> {
                         ),
                       ),
                       Container(height: 18, color: Colors.transparent),
-              
+
                       Text(
                         'Sorry, the account balance is ',
                         style: GoogleFonts.raleway(
@@ -139,12 +141,15 @@ class _EmbarkdrIvewaym extends State<EmbarkdrIvewaym> {
                         ),
                       ),
                       Container(height: 18, color: Colors.transparent),
-              
+
                       SizedBox(
                         width: 235,
                         height: 49,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pop(context);
+                            Get.to(AnalysisloGentrysdq());
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color(0xfffe6a5d),
                             shape: RoundedRectangleBorder(
@@ -171,16 +176,25 @@ class _EmbarkdrIvewaym extends State<EmbarkdrIvewaym> {
               ),
             ),
           ),
-          Container(height: 30,color: Colors.transparent),
-          Container(
-            width: 40,
-            height: 40,
-            decoration: BoxDecoration(
-              border: Border.all(color: Color(0XFFFFFFFF).withOpacity(0.5),width: 2),
-              shape: BoxShape.circle
+          Container(height: 30, color: Colors.transparent),
+          GestureDetector(
+            behavior: HitTestBehavior.translucent,
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Color(0XFFFFFFFF).withOpacity(0.5),
+                  width: 2,
+                ),
+                shape: BoxShape.circle,
+              ),
+              child: Icon(Icons.close, color: Color(0xffffffff)),
             ),
-            child: Icon(Icons.close,color: Color(0xffffffff),),
-          )
+          ),
         ],
       ),
     );

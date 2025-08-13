@@ -2,6 +2,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:recud/papilserializngj/miragenotebookgj.dart';
+import 'package:recud/papilserializngj/mountainsidehive.dart';
+import 'package:recud/papilserializngj/sumprecipicemitm.dart';
 
 class AnalysisloGentrysdq extends StatefulWidget {
   const AnalysisloGentrysdq({super.key});
@@ -11,14 +14,22 @@ class AnalysisloGentrysdq extends StatefulWidget {
 }
 
 class _AnalysisloGentrysdq extends State<AnalysisloGentrysdq> {
+  Trekkersojourn trekkersojourn = Trekkersojourn();
+
   @override
   void dispose() {
+    trekkersojourn.dispose();
     super.dispose();
   }
 
   @override
   void initState() {
     super.initState();
+    trekkersojourn.lighthouharborse();
+
+    trekkersojourn.yziplineonbac = () {
+      setState(() {});
+    };
   }
 
   @override
@@ -91,7 +102,7 @@ class _AnalysisloGentrysdq extends State<AnalysisloGentrysdq> {
                 children: [
                   Container(height: 16, color: Colors.transparent),
                   Text(
-                    'Account balance: 0',
+                    'Account balance: ${getArchipelagoUser(PassporTouting().getBox('ketchloguid').get('ouveniruid'))["ightlogwsdjin"]}',
                     style: GoogleFonts.roboto(
                       fontSize: 24,
                       fontWeight: FontWeight.w700,
@@ -101,11 +112,13 @@ class _AnalysisloGentrysdq extends State<AnalysisloGentrysdq> {
                   Container(height: 21, color: Colors.transparent),
                   Expanded(
                     child: ListView(
+                      physics: const ClampingScrollPhysics(),
                       children: [
                         Wrap(
                           runSpacing: 16,
                           children: [
-                            for (var recud in ["1", "2"]) _calllogbao(recud),
+                            for (var recud in PassporTouting().pigrinationjin)
+                              _calllogbao(recud),
                           ],
                         ),
                       ],
@@ -121,36 +134,41 @@ class _AnalysisloGentrysdq extends State<AnalysisloGentrysdq> {
   }
 
   Widget _calllogbao(recud) {
-    return Container(
-      width: MediaQuery.sizeOf(context).width,
-      height: 45,
-      decoration: BoxDecoration(
-        color: Color(0xff392c59),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
-        child: Flex(
-          direction: Axis.horizontal,
-          children: [
-            Transform.rotate(
-              angle: 24 * (pi / 180),
-              child: SizedBox(
-                width: 21,
-                height: 30,
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/xzciuqhuizs.png'),
-                      fit: BoxFit.cover,
+    return GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: () {
+        trekkersojourn.gattourguor(recud["ideguidebjian"]);
+      },
+      child: Container(
+        width: MediaQuery.sizeOf(context).width,
+        height: 45,
+        decoration: BoxDecoration(
+          color: Color(0xff392c59),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          child: Flex(
+            direction: Axis.horizontal,
+            children: [
+              Transform.rotate(
+                angle: 24 * (pi / 180),
+                child: SizedBox(
+                  width: 21,
+                  height: 30,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/xzciuqhuizs.png'),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            Container(width: 12,color: Colors.transparent),
-             Text(
-                '400',
+              Container(width: 12, color: Colors.transparent),
+              Text(
+                '${recud["conaltimeters"]}',
                 style: GoogleFonts.roboto(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
@@ -158,16 +176,21 @@ class _AnalysisloGentrysdq extends State<AnalysisloGentrysdq> {
                 ),
               ),
               Spacer(),
-                Text(
-                '\$ 0.99',
+              Text(
+                '\$ ${recud["cosodometerdo"]}',
                 style: GoogleFonts.roboto(
                   fontSize: 12,
                   fontWeight: FontWeight.w500,
                   color: Color(0xFF958cc1),
                 ),
               ),
-              Icon(Icons.chevron_right_rounded,size: 26,color: Color(0xff958cc1),)
-          ],
+              Icon(
+                Icons.chevron_right_rounded,
+                size: 26,
+                color: Color(0xff958cc1),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:recud/pages/airfare_banterqishi/bitstreamloglinensx.dart';
+import 'package:recud/pages/airfare_banterqishi/boardwalkcableway.dart';
+import 'package:recud/pages/cliffside_ampsitewo/analysislogentrysdq.dart';
+import 'package:recud/pages/cliffside_ampsitewo/extractbackupfilec.dart';
+import 'package:recud/pages/cliffside_ampsitewo/historybulletpoints.dart';
+import 'package:recud/papilserializngj/miragenotebookgj.dart';
+import 'package:recud/papilserializngj/mountainsidehive.dart';
 
 class NotdocmanrEferxzcs extends StatefulWidget {
   const NotdocmanrEferxzcs({super.key});
@@ -44,10 +52,10 @@ class _NotdocmanrEferxzcs extends State<NotdocmanrEferxzcs> {
           Scaffold(
             backgroundColor: Colors.transparent,
             appBar: PreferredSize(
-              preferredSize: Size.fromHeight(56), 
+              preferredSize: Size.fromHeight(56),
               child: AppBar(
-                backgroundColor: Colors.transparent, 
-                elevation: 0, 
+                backgroundColor: Colors.transparent,
+                elevation: 0,
                 leading: Padding(
                   padding: const EdgeInsets.only(left: 20),
                   child: Material(
@@ -107,7 +115,20 @@ class _NotdocmanrEferxzcs extends State<NotdocmanrEferxzcs> {
                           width: MediaQuery.sizeOf(context).width,
                           height: 49,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () async {
+
+                              await anggrowthelod();
+                              PassporTouting().overlandIndex = 0;
+
+
+                               Get.offAll(BoardwalkCableway());
+await Future.delayed(const Duration(milliseconds: 810));
+                              await PassporTouting()
+                                  .getBox('ketchloguid')
+                                  .put('ouveniruid', null);
+                            
+                           
+                            },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Color(0xff9870CF),
                               shape: RoundedRectangleBorder(
@@ -133,7 +154,9 @@ class _NotdocmanrEferxzcs extends State<NotdocmanrEferxzcs> {
                           width: MediaQuery.sizeOf(context).width,
                           height: 49,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.dialog(ExtractbaKupfilec());
+                            },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Color(0xffFE6A5D),
                               shape: RoundedRectangleBorder(
@@ -168,35 +191,60 @@ class _NotdocmanrEferxzcs extends State<NotdocmanrEferxzcs> {
   }
 
   Widget _pressingsz(recud) {
-    return Container(
-      width: MediaQuery.sizeOf(context).width,
-      height: 45,
-      decoration: BoxDecoration(
-        color: Color(0xff392c59),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Stack(
-          alignment: Alignment.centerLeft,
-          children: [
-            Text(
-              recud,
-              style: GoogleFonts.roboto(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-                color: Color(0xFFffffff),
+    return GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: () {
+        switch (recud) {
+          case "Wallet":
+            Get.to(AnalysisloGentrysdq());
+            break;
+          case "Blacklist":
+            Get.to(HistorybulLetpoints(boutderpass: '1',));
+            break;
+          case "User Agreement":
+            Get.to(
+              BitstreamlOglinensx(receiptd: 'https://app.yl8t2cx1.link/users'),
+            );
+            break;
+          case "Privacy Agreement":
+            Get.to(
+              BitstreamlOglinensx(
+                receiptd: 'https://app.yl8t2cx1.link/privacy',
               ),
-            ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: Icon(
-                Icons.chevron_right_rounded,
-                color: Color(0xff958cc1),
-                size: 30,
+            );
+            break;
+        }
+      },
+      child: Container(
+        width: MediaQuery.sizeOf(context).width,
+        height: 45,
+        decoration: BoxDecoration(
+          color: Color(0xff392c59),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Stack(
+            alignment: Alignment.centerLeft,
+            children: [
+              Text(
+                recud,
+                style: GoogleFonts.roboto(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xFFffffff),
+                ),
               ),
-            ),
-          ],
+              Align(
+                alignment: Alignment.centerRight,
+                child: Icon(
+                  Icons.chevron_right_rounded,
+                  color: Color(0xff958cc1),
+                  size: 30,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

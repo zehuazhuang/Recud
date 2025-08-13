@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:recud/pages/booking_camperzhu/beachsidepartureb.dart';
+import 'package:recud/pages/booking_camperzhu/geotagfootprintk.dart';
 import 'package:recud/pages/borderarchivegy/geologfrontierwidget.dart';
-
+import 'package:recud/pages/cliffside_ampsitewo/detourharborepathj.dart';
+import 'package:recud/pages/cliffside_ampsitewo/gazetteerleisurewo.dart';
+import 'package:recud/papilserializngj/miragenotebookgj.dart';
+import 'package:recud/papilserializngj/mountainsidehive.dart';
 
 class AutograpHudiolog extends StatefulWidget {
-  const AutograpHudiolog({super.key});
+  const AutograpHudiolog({super.key, required this.overlandqid});
+
+  final int overlandqid;
 
   @override
   State<AutograpHudiolog> createState() => _AutograpHudiolog();
 }
 
 class _AutograpHudiolog extends State<AutograpHudiolog> {
-  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _pathfindercom = TextEditingController();
   bool _expedition = false;
   @override
   void dispose() {
@@ -25,6 +33,8 @@ class _AutograpHudiolog extends State<AutograpHudiolog> {
 
   @override
   Widget build(BuildContext context) {
+    final daytripqiu = getSojournerQiu(widget.overlandqid);
+    final outbackus = getArchipelagoUser(daytripqiu["pilgrimageuid"]);
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
@@ -52,7 +62,7 @@ class _AutograpHudiolog extends State<AutograpHudiolog> {
                   height: MediaQuery.sizeOf(context).height / 1.8,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/images/aisncuicon.png'),
+                      image: AssetImage(daytripqiu["hinterlandtu"]),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -91,17 +101,29 @@ class _AutograpHudiolog extends State<AutograpHudiolog> {
                                 children: [
                                   Row(
                                     children: [
-                                      SizedBox(
-                                        width: 40,
-                                        height: 40,
-                                        child: DecoratedBox(
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            image: DecorationImage(
-                                              image: AssetImage(
-                                                'assets/images/aisncuicon.png',
+                                      GestureDetector(
+                                        behavior: HitTestBehavior.translucent,
+                                        onTap: () {
+                                          Get.to(
+                                            GazetteerlEisurewo(
+                                              cavegrotouid:
+                                                  outbackus["packlistuid"],
+                                              ridgeclitype: '2',
+                                            ),
+                                          );
+                                        },
+                                        child: SizedBox(
+                                          width: 40,
+                                          height: 40,
+                                          child: DecoratedBox(
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              image: DecorationImage(
+                                                image: AssetImage(
+                                                  outbackus["placemarktou"],
+                                                ),
+                                                fit: BoxFit.cover,
                                               ),
-                                              fit: BoxFit.cover,
                                             ),
                                           ),
                                         ),
@@ -111,7 +133,7 @@ class _AutograpHudiolog extends State<AutograpHudiolog> {
                                         color: Colors.transparent,
                                       ),
                                       Text(
-                                        'Dyllan-James',
+                                        outbackus["rangerlogming"],
                                         style: GoogleFonts.roboto(
                                           fontSize: 18,
                                           fontWeight: FontWeight.w700,
@@ -123,7 +145,9 @@ class _AutograpHudiolog extends State<AutograpHudiolog> {
                                         width: 100,
                                         height: 40,
                                         child: ElevatedButton(
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            Get.to(BeachsidePartureb());
+                                          },
                                           style: ElevatedButton.styleFrom(
                                             backgroundColor: Color(0xffFE6A5D),
                                             shape: RoundedRectangleBorder(
@@ -172,7 +196,7 @@ class _AutograpHudiolog extends State<AutograpHudiolog> {
                                           color: Colors.transparent,
                                         ),
                                         Text(
-                                          'mm/dd/yyyy',
+                                          daytripqiu["innkeeperstart"],
                                           style: GoogleFonts.roboto(
                                             fontSize: 10,
                                             fontWeight: FontWeight.w400,
@@ -187,7 +211,7 @@ class _AutograpHudiolog extends State<AutograpHudiolog> {
                                     color: Colors.transparent,
                                   ),
                                   Text(
-                                    "I'm planning to travel to the XX area for three days and two nights. I hope everyone can help me plan the itinerary.",
+                                    daytripqiu["marshlandmiaos"],
                                     style: GoogleFonts.roboto(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w400,
@@ -298,20 +322,16 @@ class _AutograpHudiolog extends State<AutograpHudiolog> {
                                             runSpacing: 12,
                                             children: [
                                               if (!_expedition)
-                                                for (var recud in ["1", "2"])
+                                                for (var recud
+                                                    in daytripqiu["cartographyhelp"].where((recud)=>
+                                                    !getArchipelagoUser(PassporTouting().getBox('ketchloguid').get('ouveniruid'))["scrapbookblock"].contains(recud["wayfaringuid"])  
+                                                    
+                                                    ))
                                                   _arrivalplan(recud),
 
                                               if (_expedition)
-                                                for (var recud in [
-                                                  "1",
-                                                  "2",
-                                                  "1",
-                                                  "2",
-                                                  "1",
-                                                  "2",
-                                                  "1",
-                                                  "2",
-                                                ])
+                                                for (var recud
+                                                    in daytripqiu["expeditionerping"])
                                                   globetrotcom(recud),
 
                                               if (_expedition)
@@ -359,7 +379,7 @@ class _AutograpHudiolog extends State<AutograpHudiolog> {
                                 alignment: Alignment.center,
                                 padding: EdgeInsets.symmetric(horizontal: 16),
                                 child: TextField(
-                                  controller: _emailController,
+                                  controller: _pathfindercom,
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
                                     hintText: 'Say something',
@@ -382,16 +402,49 @@ class _AutograpHudiolog extends State<AutograpHudiolog> {
 
                             Padding(
                               padding: const EdgeInsets.only(left: 12),
-                              child: SizedBox(
-                                width: 60,
-                                height: 49,
-                                child: DecoratedBox(
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                        'assets/images/iuhiuhidf.png',
+                              child: GestureDetector(
+                                behavior: HitTestBehavior.translucent,
+                                onTap: () async {
+                                  if (_pathfindercom.text != '') {
+                                    var itineraryqiu = PassporTouting()
+                                        .getBox('ridgepathqiu')
+                                        .getAt(widget.overlandqid - 1);
+
+                                    List<dynamic> jetsettercom =
+                                        itineraryqiu["expeditionerping"] ?? [];
+
+                                    jetsettercom.add({
+                                      "transitodysuid": PassporTouting()
+                                          .getBox('ketchloguid')
+                                          .get('ouveniruid'),
+                                      "dalliancecontent": _pathfindercom.text,
+                                    });
+
+                                    itineraryqiu["expeditionerping"] =
+                                        jetsettercom;
+                                    await PassporTouting()
+                                        .getBox('ridgepathqiu')
+                                        .putAt(
+                                          widget.overlandqid - 1,
+                                          itineraryqiu,
+                                        );
+
+                                    _pathfindercom.clear();
+
+                                    setState(() {});
+                                  }
+                                },
+                                child: SizedBox(
+                                  width: 60,
+                                  height: 49,
+                                  child: DecoratedBox(
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                          'assets/images/iuhiuhidf.png',
+                                        ),
+                                        fit: BoxFit.cover,
                                       ),
-                                      fit: BoxFit.cover,
                                     ),
                                   ),
                                 ),
@@ -427,31 +480,38 @@ class _AutograpHudiolog extends State<AutograpHudiolog> {
                           ),
                         ),
                       ),
-
-                      Material(
-                        color: Color(0xff4d5260).withOpacity(0.5),
-                        shape: const CircleBorder(),
-                        child: InkWell(
-                          customBorder: const CircleBorder(),
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: SizedBox(
-                            width: 40,
-                            height: 40,
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage(
-                                    'assets/images/iaudhiucd.png',
+                      if (daytripqiu["pilgrimageuid"] !=
+                          PassporTouting()
+                              .getBox('ketchloguid')
+                              .get('ouveniruid'))
+                        Material(
+                          color: Color(0xff4d5260).withOpacity(0.5),
+                          shape: const CircleBorder(),
+                          child: InkWell(
+                            customBorder: const CircleBorder(),
+                            onTap: () {
+                              Get.bottomSheet(
+                                DetourharBorepathj(
+                                  alfrescouid: daytripqiu["pilgrimageuid"],
+                                ),
+                              );
+                            },
+                            child: SizedBox(
+                              width: 40,
+                              height: 40,
+                              child: DecoratedBox(
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                      'assets/images/iaudhiucd.png',
+                                    ),
+                                    fit: BoxFit.cover,
                                   ),
-                                  fit: BoxFit.cover,
                                 ),
                               ),
                             ),
                           ),
                         ),
-                      ),
                     ],
                   ),
                 ),
@@ -463,105 +523,120 @@ class _AutograpHudiolog extends State<AutograpHudiolog> {
     );
   }
 
- 
-
   Widget _arrivalplan(recud) {
-    return Stack(
-      alignment: Alignment.centerLeft,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 33),
-          child: Container(
-            width: MediaQuery.sizeOf(context).width,
-            height: 76,
-            decoration: BoxDecoration(
-              color: Color(0xff392c59),
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(width: 51, color: Colors.transparent),
-                Padding(
-                  padding: const EdgeInsets.only(top: 12),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+    final wanmarqueus = getArchipelagoUser(recud["wayfaringuid"]);
+    return GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: () {
+        Get.to(GeotagfoOtprintk(transitplan: recud, safariuser: wanmarqueus));
+      },
+      child: Stack(
+        alignment: Alignment.centerLeft,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 33),
+            child: Container(
+              width: MediaQuery.sizeOf(context).width,
+              height: 76,
+              decoration: BoxDecoration(
+                color: Color(0xff392c59),
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(width: 51, color: Colors.transparent),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 12),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
 
-                    children: [
-                      Text(
-                        'Planned theme',
-                        style: GoogleFonts.roboto(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                          color: Color(0xFFffffff),
+                      children: [
+                        Text(
+                          recud["trailbertheme"],
+                          style: GoogleFonts.roboto(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                            color: Color(0xFFffffff),
+                          ),
                         ),
-                      ),
-                      Container(height: 9, color: Colors.transparent),
+                        Container(height: 9, color: Colors.transparent),
 
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: 24,
-                            height: 24,
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                  image: AssetImage(
-                                    'assets/images/aisncuicon.png',
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 24,
+                              height: 24,
+                              child: DecoratedBox(
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                      wanmarqueus["placemarktou"],
+                                    ),
+                                    fit: BoxFit.cover,
                                   ),
-                                  fit: BoxFit.cover,
                                 ),
                               ),
                             ),
+                            Text(
+                              '  ${wanmarqueus["rangerlogming"]}',
+                              style: GoogleFonts.roboto(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xFF958cc1),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Spacer(),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 6, right: 6),
+                    child: GestureDetector(
+                      behavior: HitTestBehavior.translucent,
+                      onTap: () {
+                        Get.bottomSheet(
+                          DetourharBorepathj(
+                            alfrescouid: recud["wayfaringuid"],
                           ),
-                          Text(
-                            '  Antonyo',
-                            style: GoogleFonts.roboto(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xFF958cc1),
+                        );
+                      },
+                      child: SizedBox(
+                        width: 30,
+                        height: 30,
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage('assets/images/qwiodhiju.png'),
+                              fit: BoxFit.cover,
                             ),
                           ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Spacer(),
-                Padding(
-                  padding: const EdgeInsets.only(top: 6, right: 6),
-                  child: SizedBox(
-                    width: 30,
-                    height: 30,
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/qwiodhiju.png'),
-                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        SizedBox(
-          width: 60,
-          height: 60,
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              image: DecorationImage(
-                image: AssetImage('assets/images/aisncuicon.png'),
-                fit: BoxFit.cover,
+                ],
               ),
             ),
           ),
-        ),
-      ],
+          SizedBox(
+            width: 60,
+            height: 60,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                image: DecorationImage(
+                  image: AssetImage(recud["pilgrimagetu"]),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

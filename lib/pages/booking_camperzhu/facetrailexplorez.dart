@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:recud/pages/booking_camperzhu/dossierfestivalcns.dart';
+import 'package:recud/pages/booking_camperzhu/untrysidcargcaanq.dart';
 import 'package:recud/pages/borderarchivegy/geologfrontierwidget.dart';
+import 'package:recud/papilserializngj/miragenotebookgj.dart';
+import 'package:recud/papilserializngj/mountainsidehive.dart';
 
 class FacetrailExplorez extends StatefulWidget {
   const FacetrailExplorez({super.key});
@@ -34,7 +39,7 @@ class _FacetrailExplorez extends State<FacetrailExplorez> {
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                 colors: [Color(0xff292365).withOpacity(0.1), Color(0xff532f64)],
+                colors: [Color(0xff261C3F), Color(0xff261C3F)],
                 begin: Alignment(0, 1),
                 end: Alignment(0, -1),
               ),
@@ -77,55 +82,19 @@ class _FacetrailExplorez extends State<FacetrailExplorez> {
                           ),
                         ],
                       ),
-                      SizedBox(
-                        width: 43,
-                        height: 43,
-                        child: DecoratedBox(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(
-                                'assets/images/fioqhuih_add.png',
-                              ),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(height: 24, color: Colors.transparent),
-
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          width: MediaQuery.sizeOf(context).width,
-                          height: 49,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(67),
-                            color: Color(0xff392c59),
-                          ),
-                          alignment: AlignmentDirectional(-0.85, 0),
-                          child: Text(
-                            'Search',
-                            style: GoogleFonts.roboto(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w400,
-                              color: Color(0xFF958cc1),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 12),
+                      GestureDetector(
+                        behavior: HitTestBehavior.translucent,
+                        onTap: () {
+                          Get.to(UntrysidcaRgcaanq());
+                        },
                         child: SizedBox(
-                          width: 49,
-                          height: 49,
+                          width: 43,
+                          height: 43,
                           child: DecoratedBox(
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image: AssetImage(
-                                  'assets/images/iewuhfivvs.png',
+                                  'assets/images/fioqhuih_add.png',
                                 ),
                                 fit: BoxFit.cover,
                               ),
@@ -134,6 +103,54 @@ class _FacetrailExplorez extends State<FacetrailExplorez> {
                         ),
                       ),
                     ],
+                  ),
+                  Container(height: 24, color: Colors.transparent),
+
+                  GestureDetector(
+                    behavior: HitTestBehavior.translucent,
+                    onTap: () {
+                      Get.to(DossierfesTivalcns());
+                    },
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            width: MediaQuery.sizeOf(context).width,
+                            height: 49,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(67),
+                              color: Color(0xff392c59),
+                            ),
+                            alignment: AlignmentDirectional(-0.85, 0),
+                            child: Text(
+                              'Search',
+                              style: GoogleFonts.roboto(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                                color: Color(0xFF958cc1),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 12),
+                          child: SizedBox(
+                            width: 49,
+                            height: 49,
+                            child: DecoratedBox(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/iewuhfivvs.png',
+                                  ),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   Container(height: 26, color: Colors.transparent),
                   Text(
@@ -146,21 +163,30 @@ class _FacetrailExplorez extends State<FacetrailExplorez> {
                   ),
                   Container(height: 14, color: Colors.transparent),
                   Expanded(
-                    child: ListView(
-                      padding: EdgeInsets.all(0),
-                      children: [
-                        for (var recud in ["1", "2"]) bulletin(recud),
-                      ],
+                    child: Builder(
+                      builder: (context) {
+                        final atollcape = PassporTouting()
+                            .getBox(PassporTouting().proofshotqiu)
+                            .values.where((recud)=>
+                           !getArchipelagoUser(PassporTouting().getBox('ketchloguid').get('ouveniruid'))["scrapbookblock"].contains(recud["pilgrimageuid"]) 
+                            );
+                        return ListView(
+                          padding: EdgeInsets.all(0),
+                          children: [
+                            for (var recud in atollcape) bulletin(recud),
+                            Container(height: 86, color: Colors.transparent),
+                          ],
+                        );
+                      },
                     ),
                   ),
                 ],
               ),
             ),
           ),
+          draftriftNav(context),
         ],
       ),
     );
   }
-
-
 }

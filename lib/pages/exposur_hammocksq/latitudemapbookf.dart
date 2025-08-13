@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:overlay_support/overlay_support.dart';
+import 'package:recud/papilserializngj/miragenotebookgj.dart';
 
 class LatitudeMapbookf extends StatefulWidget {
   const LatitudeMapbookf({super.key});
@@ -10,6 +12,7 @@ class LatitudeMapbookf extends StatefulWidget {
 
 class _LatitudeMapbookf extends State<LatitudeMapbookf> {
   final TextEditingController _anchortheme = TextEditingController();
+  String? _kcountryurl;
 
   bool beaconxz = false;
   @override
@@ -111,50 +114,85 @@ class _LatitudeMapbookf extends State<LatitudeMapbookf> {
                           ),
                           Align(
                             alignment: Alignment.centerLeft,
-                            child: Container(
-                              width: 96,
-                              height: 96,
-                              decoration: BoxDecoration(
-                                color: Color(0xff504370),
-                                borderRadius: BorderRadius.circular(16),
-                              ),
+                            child: GestureDetector(
+                              behavior: HitTestBehavior.translucent,
+                              onTap: () async {
+                                _kcountryurl = await promenadeImgOrVdo(
+                                  '2',
+                                  context,
+                                );
+                                setState(() {});
+                              },
+                              child: Container(
+                                width: 96,
+                                height: 96,
+                                decoration: BoxDecoration(
+                                  color: Color(0xff504370),
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
 
-                              child: Stack(
-                                children: [
-                                  Center(
-                                    child: SizedBox(
-                                      width: 30,
-                                      height: 30,
-                                      child: DecoratedBox(
-                                        decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                            image: AssetImage(
-                                              'assets/images/fioqhuih_add.png',
+                                child: Stack(
+                                  children: [
+                                    Center(
+                                      child: SizedBox(
+                                        width: 30,
+                                        height: 30,
+                                        child: DecoratedBox(
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: AssetImage(
+                                                'assets/images/fioqhuih_add.png',
+                                              ),
+                                              fit: BoxFit.cover,
                                             ),
-                                            fit: BoxFit.cover,
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  Align(
-                                    alignment: Alignment.topRight,
-                                    child: Container(
-                                      width: 20,
-                                      height: 20,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Color(0xfffe6a5d),
+                                    if (_kcountryurl != null)
+                                      SizedBox(
+                                        width: 96,
+                                        height: 96,
+                                        child: DecoratedBox(
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(
+                                              16,
+                                            ),
+                                            image: DecorationImage(
+                                              image: AssetImage(_kcountryurl!),
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
                                       ),
-                                      alignment: Alignment.center,
-                                      child: Container(
-                                        width: 6,
-                                        height: 1.5,
-                                        color: Color(0xffffffff),
+                                    Align(
+                                      alignment: Alignment.topRight,
+                                      child: GestureDetector(
+                                        behavior: HitTestBehavior.translucent,
+                                        onTap: () {
+                                          _kcountryurl = null;
+                                          setState(() {
+                                            
+                                          });
+                                        },
+                                        child: Container(
+                                          width: 20,
+                                          height: 20,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Color(0xfffe6a5d),
+                                          ),
+                                          alignment: Alignment.center,
+                                          child: Container(
+                                            width: 6,
+                                            height: 1.5,
+                                            color: Color(0xffffffff),
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -169,7 +207,13 @@ class _LatitudeMapbookf extends State<LatitudeMapbookf> {
                     width: MediaQuery.sizeOf(context).width,
                     height: 49,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        if(_anchortheme.text!=''&&_kcountryurl!=null){
+                          await anggrowthelod();
+                          Navigator.pop(context);
+                          toast('The file has been uploaded. You can see it after the review is completed.');
+                        }
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xfffe6a5d),
                         shape: RoundedRectangleBorder(

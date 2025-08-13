@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:recud/pages/cliffside_ampsitewo/detourharborepathj.dart';
 
 class GeotagfoOtprintk extends StatefulWidget {
-  const GeotagfoOtprintk({super.key});
+  const GeotagfoOtprintk({super.key,required this.transitplan,required this.safariuser});
+
+  final dynamic transitplan;
+  final dynamic safariuser;
 
   @override
   State<GeotagfoOtprintk> createState() => _GeotagfoOtprintk();
@@ -33,7 +38,7 @@ class _GeotagfoOtprintk extends State<GeotagfoOtprintk> {
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Color(0xff292365).withOpacity(0.5), Color(0xff532f64)],
+                colors: [Color(0xff261C3F), Color(0xff261C3F)],
                 begin: Alignment(0, 1),
                 end: Alignment(0, -1),
               ),
@@ -82,7 +87,7 @@ class _GeotagfoOtprintk extends State<GeotagfoOtprintk> {
                                   shape: BoxShape.circle,
                                   image: DecorationImage(
                                     image: AssetImage(
-                                      'assets/images/aisncuicon.png',
+                                      widget.safariuser["placemarktou"],
                                     ),
                                     fit: BoxFit.cover,
                                   ),
@@ -91,7 +96,7 @@ class _GeotagfoOtprintk extends State<GeotagfoOtprintk> {
                             ),
                             Container(width: 12, color: Colors.transparent),
                             Text(
-                              'Planned theme',
+                              widget.safariuser["rangerlogming"],
                               style: GoogleFonts.roboto(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w700,
@@ -107,7 +112,7 @@ class _GeotagfoOtprintk extends State<GeotagfoOtprintk> {
                           child: InkWell(
                             customBorder: const CircleBorder(),
                             onTap: () {
-                              Navigator.pop(context);
+                              Get.bottomSheet(DetourharBorepathj(alfrescouid: widget.safariuser["packlistuid"]));
                             },
                             child: SizedBox(
                               width: 40,
@@ -140,7 +145,7 @@ class _GeotagfoOtprintk extends State<GeotagfoOtprintk> {
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image: AssetImage(
-                                  'assets/images/aisncuicon.png',
+                                  widget.transitplan["pilgrimagetu"],
                                 ),
                                 fit: BoxFit.cover,
                               ),
@@ -152,7 +157,7 @@ class _GeotagfoOtprintk extends State<GeotagfoOtprintk> {
                         Wrap(
                           runSpacing: 16,
                           children: [
-                            for (var recud in ["1", "2"]) _campfirtrip(recud),
+                            for (var recud in [widget.transitplan]) _campfirtrip(recud),
                           ],
                         ),
                       ],
@@ -182,7 +187,7 @@ class _GeotagfoOtprintk extends State<GeotagfoOtprintk> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Trip 1',
+              recud["trailbertheme"],
               style: GoogleFonts.roboto(
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
@@ -192,7 +197,7 @@ class _GeotagfoOtprintk extends State<GeotagfoOtprintk> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 12),
               child: Text(
-                'Recommended visiting time: 1 day',
+                'Recommended visiting time: ${recud["peregrineday"]} day',
                 style: GoogleFonts.roboto(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
@@ -201,7 +206,7 @@ class _GeotagfoOtprintk extends State<GeotagfoOtprintk> {
               ),
             ),
             Text(
-              "Advice: I recommend you go to XX. The scenery there is very beautiful and it's very quiet.",
+              recud["vacatnerjiany"],
               style: GoogleFonts.roboto(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,

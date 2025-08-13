@@ -50,12 +50,13 @@
 			<key>NSAllowsArbitraryLoads</key>
 			<true/>
 		</dict>
+		
 		<key>NSCameraUsageDescription</key>
-		<string>This app needs camera access to capture landscapes, portraits, and videos. Your photos and videos can decorate your profile or share with friends. They're securely stored on your device and only shared with your permission. Privacy and security are protected.</string>
+		<string>This app needs to access your camera for video recording so that you can shoot and upload videos or share other pictures. All data will be securely stored on your personal device and will only be uploaded or shared with your explicit consent.</string>
 		<key>NSMicrophoneUsageDescription</key>
-		<string>This app needs microphone access for recording voice messages and sharing audio. Audio stays on your device unless you share. Privacy is our priority.</string>
+		<string>This app needs to access your microphone to record audio so that you can have a voice chat. We will only use or access the content you have recorded with your explicit permission.</string>
 		<key>NSPhotoLibraryUsageDescription</key>
-		<string>This app needs access to your photo library for sharing memorable photos/videos. It stays on your device unless you share. Access is for easy sharing and is privacy-protected.</string>
+		<string>This app needs to access your album so that you can select and upload videos or other pictures. All selected files will be used only for the purposes you have approved and will be securely stored on your device or shared only with your consent.</string>
 		<key>UIStatusBarHidden</key>
 		<false/>
 	</dict>

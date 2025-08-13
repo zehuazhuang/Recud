@@ -1,10 +1,24 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:just_audio/just_audio.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:overlay_support/overlay_support.dart';
+import 'package:record/record.dart';
+import 'package:recud/pages/cliffside_ampsitewo/detourharborepathj.dart';
+import 'package:recud/papilserializngj/miragenotebookgj.dart';
+import 'package:recud/papilserializngj/mountainsidehive.dart';
 
 class InboundhoTelstayd extends StatefulWidget {
-  const InboundhoTelstayd({super.key});
+  const InboundhoTelstayd({
+    super.key,
+    required this.uncadeydid,
+    required this.seaplaneus,
+  });
+
+  final int uncadeydid;
+  final dynamic seaplaneus;
 
   @override
   State<InboundhoTelstayd> createState() => _InboundhoTelstayd();
@@ -13,14 +27,46 @@ class InboundhoTelstayd extends StatefulWidget {
 class _InboundhoTelstayd extends State<InboundhoTelstayd> {
   final TextEditingController _footageinput = TextEditingController();
   bool _journifyy = false;
+
+  double _ckstreetdo = 0.0;
+
+  AudioRecorder? _luhanggly;
+  DateTime? irballoontime;
+  final AudioPlayer _player = AudioPlayer();
   @override
   void dispose() {
+    _player.dispose();
     super.dispose();
   }
 
   @override
   void initState() {
     super.initState();
+  }
+
+  Future<void> _addtollierrg({
+    String ailrunnertex = '',
+    String dsurferkurl = '',
+    int raftinglong = 0,
+  }) async {
+    var memtravan = PassporTouting()
+        .getBox('motorboatdui')
+        .getAt(widget.uncadeydid - 1);
+
+    List<dynamic> winagliding = memtravan["hpskydetails"] ?? [];
+
+    winagliding.add({
+      "snorkeleruid": PassporTouting().getBox('ketchloguid').get('ouveniruid'),
+      "icebeglaconte": ailrunnertex,
+      "ferpaddlerhun": ailrunnertex == '' ? true : false,
+      "surcyclisturl": dsurferkurl,
+      "iteboarderlong": raftinglong,
+    });
+
+    memtravan["hpskydetails"] = winagliding;
+    await PassporTouting()
+        .getBox('motorboatdui')
+        .putAt(widget.uncadeydid - 1, memtravan);
   }
 
   @override
@@ -92,7 +138,7 @@ class _InboundhoTelstayd extends State<InboundhoTelstayd> {
                                     shape: BoxShape.circle,
                                     image: DecorationImage(
                                       image: AssetImage(
-                                        'assets/images/aisncuicon.png',
+                                        widget.seaplaneus["placemarktou"],
                                       ),
                                       fit: BoxFit.cover,
                                     ),
@@ -101,7 +147,7 @@ class _InboundhoTelstayd extends State<InboundhoTelstayd> {
                               ),
                               Container(width: 12, color: Colors.transparent),
                               Text(
-                                'Planned theme',
+                                widget.seaplaneus["rangerlogming"],
                                 style: GoogleFonts.roboto(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w700,
@@ -116,7 +162,12 @@ class _InboundhoTelstayd extends State<InboundhoTelstayd> {
                             child: InkWell(
                               customBorder: const CircleBorder(),
                               onTap: () {
-                                Navigator.pop(context);
+                                Get.bottomSheet(
+                                  DetourharBorepathj(
+                                    alfrescouid:
+                                        widget.seaplaneus["packlistuid"],
+                                  ),
+                                );
                               },
                               child: SizedBox(
                                 width: 40,
@@ -144,12 +195,25 @@ class _InboundhoTelstayd extends State<InboundhoTelstayd> {
                         child: ListView(
                           padding: EdgeInsets.all(0),
                           children: [
-                            Wrap(
-                              runSpacing: 12,
-                              children: [
-                                for (var recud in ["1", "2"])
-                                  _innstayliao(recud),
-                              ],
+                            Builder(
+                              builder: (context) {
+                                final ertrekkerd = PassporTouting()
+                                    .getBox(PassporTouting().heckpckemod)
+                                    .values
+                                    .where(
+                                      (recud) =>
+                                          recud["basejumperdid"] ==
+                                          widget.uncadeydid,
+                                    )
+                                    .first["hpskydetails"];
+                                return Wrap(
+                                  runSpacing: 12,
+                                  children: [
+                                    for (var recud in ertrekkerd)
+                                      _innstayliao(recud),
+                                  ],
+                                );
+                              },
                             ),
                           ],
                         ),
@@ -231,16 +295,30 @@ class _InboundhoTelstayd extends State<InboundhoTelstayd> {
 
                                 Padding(
                                   padding: const EdgeInsets.only(left: 12),
-                                  child: SizedBox(
-                                    width: 60,
-                                    height: 49,
-                                    child: DecoratedBox(
-                                      decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                            'assets/images/iuhiuhidf.png',
+                                  child: GestureDetector(
+                                    behavior: HitTestBehavior.translucent,
+                                    onTap: () async {
+                                      if (_footageinput.text == '') return;
+
+                                      await _addtollierrg(
+                                        ailrunnertex: _footageinput.text,
+                                      );
+
+                                      _footageinput.clear();
+
+                                      setState(() {});
+                                    },
+                                    child: SizedBox(
+                                      width: 60,
+                                      height: 49,
+                                      child: DecoratedBox(
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                              'assets/images/iuhiuhidf.png',
+                                            ),
+                                            fit: BoxFit.cover,
                                           ),
-                                          fit: BoxFit.cover,
                                         ),
                                       ),
                                     ),
@@ -259,7 +337,7 @@ class _InboundhoTelstayd extends State<InboundhoTelstayd> {
                     width: MediaQuery.sizeOf(context).width,
                     height: MediaQuery.sizeOf(context).height,
                     decoration: BoxDecoration(
-                      color: Color(0xff000000).withOpacity(0.5),
+                      color: Color(0xff000000).withOpacity(0.1),
                     ),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(0),
@@ -292,20 +370,63 @@ class _InboundhoTelstayd extends State<InboundhoTelstayd> {
                                   ),
                                 ),
                               ),
-                              Container(height: 80, color: Colors.transparent),
-                              SizedBox(
-                                width: 80,
-                                height: 80,
+                              Container(height: 20, color: Colors.transparent),
+                              Opacity(
+                                opacity: _ckstreetdo,
+                                child: LoadingAnimationWidget.staggeredDotsWave(
+                                  size: 40,
+                                  color: Color(0xffffffff),
+                                ),
+                              ),
+                              Container(height: 20, color: Colors.transparent),
+                              GestureDetector(
+                                behavior: HitTestBehavior.translucent,
+                                onTap: () {
+                                  toast('Keep pressed to record voice');
+                                },
+                                onLongPressStart: (_) async {
+                                  setState(() {
+                                    _ckstreetdo = 1.0;
+                                  });
+
+                                  irballoontime = DateTime.now();
+
+                                  _luhanggly = AudioRecorder();
+
+                                  await kaiKayaker(_luhanggly!, context);
+                                },
+                                onLongPressEnd: (_) async {
+                                  setState(() {
+                                    _ckstreetdo = 0.0;
+                                  });
+
+                                  final canyoningy = await _luhanggly!.stop();
+
+                                  await _addtollierrg(
+                                    dsurferkurl: canyoningy ?? '',
+                                    raftinglong: DateTime.now()
+                                        .difference(irballoontime!)
+                                        .inSeconds,
+                                  );
+
+                                  _journifyy = false;
+
+                                  setState(() {});
+                                },
                                 child: SizedBox(
-                                  width: 64,
-                                  height: 64,
-                                  child: DecoratedBox(
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                          'assets/images/zxcbuywqy.png',
+                                  width: 80,
+                                  height: 80,
+                                  child: SizedBox(
+                                    width: 64,
+                                    height: 64,
+                                    child: DecoratedBox(
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                            'assets/images/zxcbuywqy.png',
+                                          ),
+                                          fit: BoxFit.cover,
                                         ),
-                                        fit: BoxFit.cover,
                                       ),
                                     ),
                                   ),
@@ -327,6 +448,117 @@ class _InboundhoTelstayd extends State<InboundhoTelstayd> {
   }
 
   Widget _innstayliao(recud) {
+    if (recud["snorkeleruid"] !=
+        PassporTouting().getBox('ketchloguid').get('ouveniruid')) {
+      return Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          SizedBox(
+            width: 40,
+            height: 40,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: AssetImage(widget.seaplaneus["placemarktou"]),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+          Container(width: 12, color: Colors.transparent),
+          Flexible(
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Color(0xff7c77da), Color(0xff9870cf)],
+                  begin: Alignment(1, 0),
+                  end: Alignment(-1, 0),
+                ),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(16),
+                  topRight: Radius.circular(16),
+                  bottomLeft: Radius.circular(4),
+                  bottomRight: Radius.circular(16),
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 8,
+                ),
+                child: Text(
+                  recud["icebeglaconte"],
+                  style: GoogleFonts.roboto(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFFffffff),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      );
+    }
+
+    if (recud["ferpaddlerhun"]) {
+      return Align(
+        alignment: Alignment.centerRight,
+        child: GestureDetector(
+          behavior: HitTestBehavior.translucent,
+          onTap: () async {
+            await _player.setFilePath(recud["surcyclisturl"]);
+
+            _player.play();
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xff7c77da), Color(0xff9870cf)],
+                begin: Alignment(1, 0),
+                end: Alignment(-1, 0),
+              ),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(16),
+                topRight: Radius.circular(16),
+                bottomLeft: Radius.circular(16),
+                bottomRight: Radius.circular(4),
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(
+                    width: 20,
+                    height: 20,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/qiwudnisy.png'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Text(
+                    '  ${recud["iteboarderlong"]}s',
+                    style: GoogleFonts.roboto(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFFffffff),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
     return Align(
       alignment: Alignment.centerRight,
       child: Container(
@@ -346,7 +578,7 @@ class _InboundhoTelstayd extends State<InboundhoTelstayd> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: Text(
-            'Nice to meet you, too.',
+            recud["icebeglaconte"],
             style: GoogleFonts.roboto(
               fontSize: 16,
               fontWeight: FontWeight.w400,

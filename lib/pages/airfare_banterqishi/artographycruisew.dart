@@ -38,7 +38,7 @@ class _ArtographyCruisew extends State<ArtographyCruisew> {
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                 colors: [Color(0xff292365).withOpacity(0.1), Color(0xff532f64)],
+                 colors: [Color(0xff261C3F), Color(0xff261C3F)],
                 begin: Alignment(0, 1),
                 end: Alignment(0, -1),
               ),

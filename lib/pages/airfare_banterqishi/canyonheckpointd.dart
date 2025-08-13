@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:overlay_support/overlay_support.dart';
+import 'package:recud/pages/airfare_banterqishi/artographycruisew.dart';
+import 'package:recud/pages/booking_camperzhu/facetrailexplorez.dart';
+import 'package:recud/papilserializngj/miragenotebookgj.dart';
+import 'package:recud/papilserializngj/mountainsidehive.dart';
 
 class CanyonhecKpointd extends StatefulWidget {
   const CanyonhecKpointd({super.key});
@@ -35,7 +41,7 @@ class _CanyonhecKpointd extends State<CanyonhecKpointd> {
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                 colors: [Color(0xff292365).withOpacity(0.1), Color(0xff532f64)],
+                colors: [Color(0xff292365), Color(0xff532f64)],
                 begin: Alignment(0, 1),
                 end: Alignment(0, -1),
               ),
@@ -64,6 +70,7 @@ class _CanyonhecKpointd extends State<CanyonhecKpointd> {
           ),
 
           Scaffold(
+            resizeToAvoidBottomInset: false,
             backgroundColor: Colors.transparent,
             body: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 21),
@@ -172,7 +179,7 @@ class _CanyonhecKpointd extends State<CanyonhecKpointd> {
                     padding: EdgeInsets.symmetric(horizontal: 16),
                     child: TextField(
                       controller: _coastlinem,
-                       obscureText: true,
+                      obscureText: true,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: 'Enter password',
@@ -217,14 +224,20 @@ class _CanyonhecKpointd extends State<CanyonhecKpointd> {
                   Container(height: 12, color: Colors.transparent),
                   Align(
                     alignment: Alignment.centerRight,
-                    child: Text(
-                      'Forgot?',
-                      style: GoogleFonts.roboto(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xFFffffff),
-                        decoration: TextDecoration.underline,
-                        decorationColor: Colors.white,
+                    child:GestureDetector(
+behavior: HitTestBehavior.translucent,
+      onTap: () {
+   		 Get.to(ArtographyCruisew());
+      },
+                      child: Text(
+                        'Forgot?',
+                        style: GoogleFonts.roboto(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xFFffffff),
+                          decoration: TextDecoration.underline,
+                          decorationColor: Colors.white,
+                        ),
                       ),
                     ),
                   ),
@@ -233,7 +246,30 @@ class _CanyonhecKpointd extends State<CanyonhecKpointd> {
                     width: 305,
                     height: 56,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        await anggrowthelod();
+
+                        final selfiehu = PassporTouting()
+                            .getBox(PassporTouting().minibusUsers)
+                            .values
+                            .where(
+                              (recud) =>
+                                  recud["offtrackyou"] == _binocularsy.text &&
+                                  recud["pathfindermi"] == _coastlinem.text,
+                            );
+
+                        if (selfiehu.isNotEmpty) {
+                          await PassporTouting()
+                              .getBox('ketchloguid')
+                              .put('ouveniruid', selfiehu.first["packlistuid"]);
+
+                          Get.to(FacetrailExplorez());
+                        } else {
+                          toast(
+                            'Please confirm whether the username or password is correct',
+                          );
+                        }
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xff9870CF),
                         shape: RoundedRectangleBorder(

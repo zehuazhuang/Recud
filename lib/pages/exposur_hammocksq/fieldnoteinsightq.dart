@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:recud/pages/borderarchivegy/geologfrontierwidget.dart';
+import 'package:recud/pages/cliffside_ampsitewo/gazetteerleisurewo.dart';
+import 'package:recud/pages/exposur_hammocksq/guidebookhubcityt.dart';
+import 'package:recud/pages/exposur_hammocksq/latitudemapbookf.dart';
+import 'package:recud/papilserializngj/miragenotebookgj.dart';
+import 'package:recud/papilserializngj/mountainsidehive.dart';
 
 class FieldnoteInsightq extends StatefulWidget {
   const FieldnoteInsightq({super.key});
@@ -22,6 +28,9 @@ class _FieldnoteInsightq extends State<FieldnoteInsightq> {
 
   @override
   Widget build(BuildContext context) {
+    final baccarngu = getArchipelagoUser(
+      PassporTouting().getBox('ketchloguid').get('ouveniruid'),
+    );
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
@@ -60,21 +69,29 @@ class _FieldnoteInsightq extends State<FieldnoteInsightq> {
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(
-                              image: AssetImage('assets/images/casbuydqtb.png'),
+                              image: AssetImage(baccarngu["placemarktou"]),
                               fit: BoxFit.cover,
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(
-                        width: 46,
-                        height: 46,
-                        child: DecoratedBox(
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: DecorationImage(
-                              image: AssetImage('assets/images/aiusbcddl.png'),
-                              fit: BoxFit.cover,
+                      GestureDetector(
+                        behavior: HitTestBehavior.translucent,
+                        onTap: () {
+                          Get.to(GuidebookHubcityt());
+                        },
+                        child: SizedBox(
+                          width: 46,
+                          height: 46,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  'assets/images/aiusbcddl.png',
+                                ),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),
@@ -107,37 +124,39 @@ class _FieldnoteInsightq extends State<FieldnoteInsightq> {
                           scrollDirection: Axis.horizontal,
                           children: [
                             Center(
-                              child: SizedBox(
-                                width: 60,
-                                height: 60,
-                                child: DecoratedBox(
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                        'assets/images/qihiusdnad.png',
+                              child: GestureDetector(
+                                behavior: HitTestBehavior.translucent,
+                                onTap: () {
+                                  Get.to(LatitudeMapbookf());
+                                },
+                                child: SizedBox(
+                                  width: 60,
+                                  height: 60,
+                                  child: DecoratedBox(
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                          'assets/images/qihiusdnad.png',
+                                        ),
+                                        fit: BoxFit.cover,
                                       ),
-                                      fit: BoxFit.cover,
                                     ),
                                   ),
                                 ),
                               ),
                             ),
                             Container(width: 20, color: Colors.transparent),
-                            Wrap(
-                              spacing: 20,
-                              children: [
-                                for (var recud in [
-                                  "1",
-                                  "2",
-                                  "1",
-                                  "2",
-                                  "1",
-                                  "2",
-                                  "1",
-                                  "2",
-                                ])
-                                  _freewaydis(recud),
-                              ],
+                            Builder(
+                              builder: (context) {
+                                final waypointu = getPortageUser();
+                                return Wrap(
+                                  spacing: 20,
+                                  children: [
+                                    for (var recud in waypointu)
+                                      _freewaydis(recud),
+                                  ],
+                                );
+                              },
                             ),
                           ],
                         ),
@@ -157,46 +176,65 @@ class _FieldnoteInsightq extends State<FieldnoteInsightq> {
                       Container(height: 15, color: Colors.transparent),
 
                       Padding(
-                        padding: const EdgeInsets.only(left: 16,right: 6),
-                        child: Wrap(
-                          runSpacing: 15,
-                          children: [
-                            for (var recud in ["1", "2"]) landmarktie(recud)
-                          ],
+                        padding: const EdgeInsets.only(left: 16, right: 6),
+                        child: Builder(
+                          builder: (context) {
+                            final incovelet = PassporTouting()
+                                .getBox(PassporTouting().bungalowrec)
+                                .values.where((recud)=>
+                                !getArchipelagoUser(PassporTouting().getBox('ketchloguid').get('ouveniruid'))["scrapbookblock"].contains(recud["inncampgrouid"]) 
+                                );
+                            return Wrap(
+                              runSpacing: 15,
+                              children: [
+                                for (var recud in incovelet) landmarktie(recud),
+                              ],
+                            );
+                          },
                         ),
                       ),
-                      Container(height: 92, color: Colors.transparent),
+                      Container(height: 95, color: Colors.transparent),
                     ],
                   ),
                 ),
               ],
             ),
           ),
+          draftriftNav(context),
         ],
       ),
     );
   }
 
-   
-
   Widget _freewaydis(recud) {
-    return Container(
-      width: 68,
-      height: 68,
-      decoration: BoxDecoration(
-        border: Border.all(color: Color(0xffFE7546)),
-        shape: BoxShape.circle,
-      ),
-      child: Center(
-        child: SizedBox(
-          width: 60,
-          height: 60,
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                image: AssetImage('assets/images/aisncuicon.png'),
-                fit: BoxFit.cover,
+    return GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: () {
+        Get.to(
+          GazetteerlEisurewo(
+            cavegrotouid: recud["packlistuid"],
+            ridgeclitype: '2',
+          ),
+        );
+      },
+      child: Container(
+        width: 68,
+        height: 68,
+        decoration: BoxDecoration(
+          border: Border.all(color: Color(0xffFE7546)),
+          shape: BoxShape.circle,
+        ),
+        child: Center(
+          child: SizedBox(
+            width: 60,
+            height: 60,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: AssetImage(recud["placemarktou"]),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),

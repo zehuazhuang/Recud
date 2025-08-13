@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:overlay_support/overlay_support.dart';
+import 'package:recud/pages/airfare_banterqishi/bitstreamloglinensx.dart';
+import 'package:recud/pages/airfare_banterqishi/canyonheckpointd.dart';
+import 'package:recud/pages/airfare_banterqishi/customsordinatesz.dart';
+import 'package:recud/pages/booking_camperzhu/facetrailexplorez.dart';
+import 'package:recud/papilserializngj/miragenotebookgj.dart';
+import 'package:recud/papilserializngj/mountainsidehive.dart';
 
 class BoardwalkCableway extends StatefulWidget {
   const BoardwalkCableway({super.key});
@@ -9,7 +17,7 @@ class BoardwalkCableway extends StatefulWidget {
 }
 
 class _BoardwalkCableway extends State<BoardwalkCableway> {
-  bool beaconxz = false;
+  bool _beaconxz = false;
   @override
   void dispose() {
     super.dispose();
@@ -18,6 +26,13 @@ class _BoardwalkCableway extends State<BoardwalkCableway> {
   @override
   void initState() {
     super.initState();
+  }
+
+  bool _checkbrafta() {
+    if (!_beaconxz) {
+      toast('The agreement has not yet been agreed');
+    }
+    return _beaconxz;
   }
 
   @override
@@ -57,7 +72,9 @@ class _BoardwalkCableway extends State<BoardwalkCableway> {
                 width: 305,
                 height: 56,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    if (_checkbrafta()) Get.to(CanyonhecKpointd());
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xff9870CF),
                     shape: RoundedRectangleBorder(
@@ -80,7 +97,17 @@ class _BoardwalkCableway extends State<BoardwalkCableway> {
                 width: 305,
                 height: 56,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    if (_checkbrafta()) {
+                      await anggrowthelod();
+
+                      await PassporTouting()
+                          .getBox('ketchloguid')
+                          .put('ouveniruid', 7);
+
+                      Get.to(FacetrailExplorez());
+                    }
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xfffd688c),
                     shape: RoundedRectangleBorder(
@@ -99,40 +126,46 @@ class _BoardwalkCableway extends State<BoardwalkCableway> {
                 ),
               ),
               Container(height: 20, color: Colors.transparent),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Don't have an account?",
-                    style: GoogleFonts.roboto(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xFF958cc1),
+              GestureDetector(
+                behavior: HitTestBehavior.translucent,
+                onTap: () {
+                  if (_checkbrafta()) Get.to(CustomsordInatesz());
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Don't have an account?",
+                      style: GoogleFonts.roboto(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xFF958cc1),
+                      ),
                     ),
-                  ),
-                  Text(
-                    " Sign up",
-                    style: GoogleFonts.roboto(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xFFffffff),
-                      decoration: TextDecoration.underline,
-                      decorationColor: Colors.white,
+                    Text(
+                      " Sign up",
+                      style: GoogleFonts.roboto(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xFFffffff),
+                        decoration: TextDecoration.underline,
+                        decorationColor: Colors.white,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               Container(height: 30, color: Colors.transparent),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Checkbox(
-                    value: beaconxz,
+                    value: _beaconxz,
                     activeColor: Color(0xffFE6A5D),
                     checkColor: Colors.white,
                     onChanged: (value) {
                       setState(() {
-                        beaconxz = !beaconxz;
+                        _beaconxz = !_beaconxz;
                       });
                     },
                   ),
@@ -144,14 +177,24 @@ class _BoardwalkCableway extends State<BoardwalkCableway> {
                       color: Color(0xFF958cc1),
                     ),
                   ),
-                  Text(
-                    "User Agreement",
-                    style: GoogleFonts.roboto(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFFffffff),
-                      decoration: TextDecoration.underline,
-                      decorationColor: Colors.white,
+                  GestureDetector(
+                    behavior: HitTestBehavior.translucent,
+                    onTap: () {
+                      Get.to(
+                        BitstreamlOglinensx(
+                          receiptd: 'https://app.yl8t2cx1.link/users',
+                        ),
+                      );
+                    },
+                    child: Text(
+                      "User Agreement",
+                      style: GoogleFonts.roboto(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xFFffffff),
+                        decoration: TextDecoration.underline,
+                        decorationColor: Colors.white,
+                      ),
                     ),
                   ),
                   Text(
@@ -162,14 +205,24 @@ class _BoardwalkCableway extends State<BoardwalkCableway> {
                       color: Color(0xFF958cc1),
                     ),
                   ),
-                  Text(
-                    "Privacy Policy",
-                    style: GoogleFonts.roboto(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFFffffff),
-                      decoration: TextDecoration.underline,
-                      decorationColor: Colors.white,
+                  GestureDetector(
+                    behavior: HitTestBehavior.translucent,
+                    onTap: () {
+                      Get.to(
+                        BitstreamlOglinensx(
+                          receiptd: 'https://app.yl8t2cx1.link/privacy',
+                        ),
+                      );
+                    },
+                    child: Text(
+                      "Privacy Policy",
+                      style: GoogleFonts.roboto(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xFFffffff),
+                        decoration: TextDecoration.underline,
+                        decorationColor: Colors.white,
+                      ),
                     ),
                   ),
                 ],

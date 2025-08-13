@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:recud/pages/borderarchivegy/geologfrontierwidget.dart';
+import 'package:recud/papilserializngj/miragenotebookgj.dart';
+import 'package:recud/papilserializngj/mountainsidehive.dart';
 
 class DossierfesTivalcns extends StatefulWidget {
   const DossierfesTivalcns({super.key});
@@ -10,7 +12,7 @@ class DossierfesTivalcns extends StatefulWidget {
 }
 
 class _DossierfesTivalcns extends State<DossierfesTivalcns> {
-  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _bazaarcha = TextEditingController();
   @override
   void dispose() {
     super.dispose();
@@ -85,7 +87,9 @@ class _DossierfesTivalcns extends State<DossierfesTivalcns> {
                           alignment: Alignment.center,
                           padding: EdgeInsets.symmetric(horizontal: 16),
                           child: TextField(
-                            controller: _emailController,
+                            controller: _bazaarcha,
+                            autofocus: true,
+                            onChanged: (value) => setState(() {}),
                             decoration: InputDecoration(
                               border: InputBorder.none,
                               hintText: 'Search',
@@ -122,18 +126,71 @@ class _DossierfesTivalcns extends State<DossierfesTivalcns> {
                           ),
                         ),
                       ),
-
                     ],
                   ),
-                  Container(height: 26,color: Colors.transparent),
+                  Container(height: 26, color: Colors.transparent),
                   Expanded(
-                    child: ListView(
-                      padding: EdgeInsets.all(0),
-                      children: [
-                          for (var recud in ["1", "2"]) bulletin(recud),
-                      ],
+                    child: Builder(
+                      builder: (context) {
+                        dynamic atollcape;
+
+                        if (_bazaarcha.text == '') {
+                          atollcape = [];
+                        } else {
+                          atollcape = PassporTouting()
+                              .getBox(PassporTouting().proofshotqiu)
+                              .values
+                              .where(
+                                (recud) => recud["marshlandmiaos"].contains(
+                                  _bazaarcha.text,
+                                )&&
+                                !getArchipelagoUser(PassporTouting().getBox('ketchloguid').get('ouveniruid'))["scrapbookblock"].contains(recud["pilgrimageuid"]) 
+                                ,
+                              );
+                        }
+
+                        if (_bazaarcha.text != '' && atollcape.isEmpty) {
+                          return Flex(
+                            direction: Axis.vertical,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              SizedBox(
+                                width: 97,
+                                height: 97,
+                                child: DecoratedBox(
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        'assets/images/asndwqik.png',
+                                      ),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Container(height: 16, color: Colors.transparent),
+                                Text(
+                                  textAlign: TextAlign.center,
+                'Sorry, no relevant content was found. Please re-enter.',
+                style: GoogleFonts.roboto(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xFF958cc1),
+                ),
+              ),
+                            ],
+                          );
+                        }
+
+                        return ListView(
+                          padding: EdgeInsets.all(0),
+                          children: [
+                            for (var recud in atollcape) bulletin(recud),
+                          ],
+                        );
+                      },
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
