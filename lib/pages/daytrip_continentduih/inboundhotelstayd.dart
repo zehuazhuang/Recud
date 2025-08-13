@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:overlay_support/overlay_support.dart';
@@ -54,6 +55,8 @@ class _InboundhoTelstayd extends State<InboundhoTelstayd> {
         .getAt(widget.uncadeydid - 1);
 
     List<dynamic> winagliding = memtravan["hpskydetails"] ?? [];
+
+    memtravan["atranasqutime"] = DateFormat('hh:mm a').format(DateTime.now());
 
     winagliding.add({
       "snorkeleruid": PassporTouting().getBox('ketchloguid').get('ouveniruid'),

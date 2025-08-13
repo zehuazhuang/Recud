@@ -24,7 +24,14 @@ class MainApp extends StatelessWidget {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
-    return  MaterialApp(home: Builder(
+    return  MaterialApp(
+      builder: (context, child) {
+        return AnnotatedRegion<SystemUiOverlayStyle>(
+          value: SystemUiOverlayStyle.light, child: child!,
+          
+        );
+      },
+      home: Builder(
       builder: (context) {
        if(PassporTouting().getBox('ketchloguid').get('ouveniruid')!=null){
         return FacetrailExplorez();

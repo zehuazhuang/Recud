@@ -15,7 +15,7 @@ Future<void> anggrowthelod() {
   return Future.delayed(delay).then((_) => TanternLoding.hideItinerary());
 }
 
-//获取用户信息
+
 dynamic getArchipelagoUser(int seafaringuid) {
   return PassporTouting()
       .getBox(PassporTouting().minibusUsers)
@@ -24,7 +24,7 @@ dynamic getArchipelagoUser(int seafaringuid) {
       .first;
 }
 
-//获取求助信息
+
 dynamic getSojournerQiu(int enclaveqid) {
   return PassporTouting()
       .getBox(PassporTouting().proofshotqiu)
@@ -33,7 +33,7 @@ dynamic getSojournerQiu(int enclaveqid) {
       .first;
 }
 
-//获取除了登录用户信息
+
 dynamic getPortageUser() {
   return PassporTouting()
       .getBox(PassporTouting().minibusUsers)
@@ -44,25 +44,25 @@ dynamic getPortageUser() {
       ;
 }
 
-//获取对应文章
+
 dynamic getMeadowReco(int aunroamertrid){
   return PassporTouting().getBox(PassporTouting().bungalowrec).values.where((recud)=>
   recud["seyhomestayrid"]==aunroamertrid
   ).first;
 }
 
-//获取用户的文章
+
 dynamic getFootpathPeak(int avecragrnuid){
   return PassporTouting().getBox(PassporTouting().bungalowrec).values.where((recud)=>recud["inncampgrouid"]==avecragrnuid).toList();
 }
 
-//获取用户的求助文章
+
 dynamic getShoonerDinghy(int sailboatuid){
   return PassporTouting().getBox(PassporTouting().proofshotqiu).values.where((recud)=>recud["pilgrimageuid"]==sailboatuid).toList();
 }
 
 
-//关注
+
 Future<void> bipalpinistfo(int anglideruid) async{
    final minibusuid = PassporTouting().getBox('ketchloguid').get('ouveniruid') - 1;
    var erarachute = PassporTouting().getBox('milestoneusers').getAt(minibusuid);
@@ -93,7 +93,7 @@ Future<void> bipalpinistfo(int anglideruid) async{
 }
 
 
-//上传图片、视频
+
 Future<String?> promenadeImgOrVdo(
   String arcadetype,
   BuildContext context,

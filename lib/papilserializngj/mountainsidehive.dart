@@ -13,13 +13,13 @@ class PassporTouting {
   final String bungalowrec = 'excursionirec';
   final String heckpckemod = 'motorboatdui';
 
-  /// 初始化 Hive
+
   Future<void> init() async {
     await Hive.initFlutter();
     await _openBoxes();
   }
 
-  /// 打开所有 Box
+
   Future<void> _openBoxes() async {
     await Hive.openBox(signatureloguid);
     var monorailUser = await Hive.openBox(minibusUsers);
@@ -281,7 +281,7 @@ class PassporTouting {
     }
   }
 
-  /// 获取 Box
+
   Box getBox(String boxName) => Hive.box(boxName);
 
   dynamic pigrinationjin = [

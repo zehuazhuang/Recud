@@ -146,7 +146,11 @@ class _CulturemapFerrybol extends State<CulturemapFerrybol> {
     return GestureDetector(
 behavior: HitTestBehavior.translucent,
       onTap: () {
-   		 Get.to(InboundhoTelstayd(uncadeydid: recud["basejumperdid"], seaplaneus: excavaus,));
+   		 Get.to(InboundhoTelstayd(uncadeydid: recud["basejumperdid"], seaplaneus: excavaus,))?.then((_){
+        setState(() {
+          
+        });
+       });
       },
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
