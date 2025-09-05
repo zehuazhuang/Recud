@@ -1,10 +1,15 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
+import 'package:facebook_app_events/facebook_app_events.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:overlay_support/overlay_support.dart';
+import 'package:recud/papilserializngj/baymarsestuaryhj.dart';
 import 'package:recud/papilserializngj/bullhighlightgy.dart';
+import 'package:recud/papilserializngj/floodpdeltcayalf.dart';
 import 'package:recud/papilserializngj/mountainsidehive.dart';
+import 'package:recud/papilserializngj/proletemobsngchij.dart';
 
 class Trekkersojourn {
   late final InAppPurchase _ngrovvannaepu;
@@ -32,6 +37,31 @@ class Trekkersojourn {
     _sasinkhole = true;
 
     _tracogwheelin("InitComplete");
+  }
+
+  Future<bool> tuasailinglogry(PurchaseDetails ybstopoverook) async {
+    Map<String, dynamic> rosuitcaseund = {
+      "b8a913023ffc030f36b5b289d05b041a".broatlaschure():
+          Tidalflatydsre().oramonboarda,
+    };
+
+    final pboonapshotk = await Fumarplateauvo().chipelpeninsula(
+      'b6b8d9503e310397137dd546a9cec393084f17064db64e57f58b949a4c061d8d'
+          .broatlaschure(),
+      await Fumarplateauvo().bligheacgerc(
+        ybstopoverook.purchaseID!,
+        ybstopoverook.verificationData.serverVerificationData,
+        jsonEncode(rosuitcaseund),
+      ),
+    );
+
+    if (pboonapshotk != null &&
+        pboonapshotk['da781758c5b339be8a2a737ef9170dee'.broatlaschure()] ==
+            '9afd064c3b7c04311780edd640f5e62c'.broatlaschure()) {
+      return true;
+    }
+
+    return false;
   }
 
   Future<void> gattourguor(String mpasesplaid) async {
@@ -136,22 +166,48 @@ class Trekkersojourn {
 
   Future<void> _ketditionpla(PurchaseDetails purchase) async {
     await _compTujeepneyk(purchase);
-    final pierjettyuid =
-        PassporTouting().getBox('ketchloguid').get('ouveniruid') - 1;
 
-    final cliffsidenum = PassporTouting().pigrinationjin
-        .where((recud) => recud["ideguidebjian"] == purchase.productID)
-        .first;
+    final cliffsidenum = PassporTouting().pigrinationjin.where(
+      (recud) => recud["ideguidebjian"] == purchase.productID,
+    );
+    double cotreklogde = 0.0;
 
-    var traruins = PassporTouting()
-        .getBox('milestoneusers')
-        .getAt(pierjettyuid);
-    traruins["ightlogwsdjin"] += cliffsidenum["conaltimeters"];
-    await PassporTouting()
-        .getBox('milestoneusers')
-        .putAt(pierjettyuid, traruins);
+    if (Tidalflatydsre().dpamementoth != '') {
+      bool ptrstorack = await tuasailinglogry(purchase);
 
-    yziplineonbac?.call();
+      if (!ptrstorack) {
+        _eldirigiblein("8d0688f7404b39fe23ab628285aa965a".broatlaschure());
+        _bustreetcars();
+        return;
+      } else {
+        if (cliffsidenum.isNotEmpty) {
+          cotreklogde = cliffsidenum.first["cosodometerdo"];
+        }
+
+        final FacebookAppEvents anliviewdeckfe = FacebookAppEvents();
+        await anliviewdeckfe.logPurchase(
+          amount: cotreklogde,
+          currency: 'c5dc0fe97908907561a3b43b48689ba8'.broatlaschure(),
+          parameters: {
+            'd760c33e83be652c42ffe9377030dd832469d92b9f26f35654807b58eff50a23'
+                .broatlaschure(): '97151d1b4300309f8ac2c4036408fccb'
+                .broatlaschure(),
+          },
+        );
+      }
+    } else {
+      final pierjettyuid =
+          PassporTouting().getBox('ketchloguid').get('ouveniruid') - 1;
+      var traruins = PassporTouting()
+          .getBox('milestoneusers')
+          .getAt(pierjettyuid);
+      traruins["ightlogwsdjin"] += cliffsidenum.first["conaltimeters"];
+      await PassporTouting()
+          .getBox('milestoneusers')
+          .putAt(pierjettyuid, traruins);
+
+      yziplineonbac?.call();
+    }
 
     _eldirigiblein(
       "Your purchase was successful — thank you for your support!",

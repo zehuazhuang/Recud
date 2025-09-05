@@ -8,6 +8,7 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:record/record.dart';
 import 'package:recud/pages/cliffside_ampsitewo/detourharborepathj.dart';
+import 'package:recud/pages/daytrip_continentduih/heathgustraitlfdadianh.dart';
 import 'package:recud/papilserializngj/miragenotebookgj.dart';
 import 'package:recud/papilserializngj/mountainsidehive.dart';
 
@@ -159,34 +160,52 @@ class _InboundhoTelstayd extends State<InboundhoTelstayd> {
                               ),
                             ],
                           ),
-                          Material(
-                            color: Color(0xff4d5260).withOpacity(0.5),
-                            shape: const CircleBorder(),
-                            child: InkWell(
-                              customBorder: const CircleBorder(),
-                              onTap: () {
-                                Get.bottomSheet(
-                                  DetourharBorepathj(
-                                    alfrescouid:
-                                        widget.seaplaneus["packlistuid"],
-                                  ),
-                                );
-                              },
-                              child: SizedBox(
-                                width: 40,
-                                height: 40,
-                                child: DecoratedBox(
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                        'assets/images/iaudhiucd.png',
+
+                          Row(
+                            children: [
+                              GestureDetector(
+                                behavior: HitTestBehavior.translucent,
+                                onTap: () {
+                                  Get.to(HheathgustraItlfdadianh(femoornus: widget.seaplaneus,));
+                                },
+
+                                child: Icon(
+                                  Icons.videocam_sharp,
+                                  size: 36,
+                                  color: Color(0xffffffff),
+                                ),
+                              ),
+                              Container(width: 13, color: Colors.transparent),
+                              Material(
+                                color: Color(0xff4d5260).withOpacity(0.5),
+                                shape: const CircleBorder(),
+                                child: InkWell(
+                                  customBorder: const CircleBorder(),
+                                  onTap: () {
+                                    Get.bottomSheet(
+                                      DetourharBorepathj(
+                                        alfrescouid:
+                                            widget.seaplaneus["packlistuid"],
                                       ),
-                                      fit: BoxFit.cover,
+                                    );
+                                  },
+                                  child: SizedBox(
+                                    width: 40,
+                                    height: 40,
+                                    child: DecoratedBox(
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                            'assets/images/iaudhiucd.png',
+                                          ),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
+                            ],
                           ),
                         ],
                       ),

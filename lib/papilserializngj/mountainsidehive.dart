@@ -8,7 +8,7 @@ class PassporTouting {
   int overlandIndex = 0;
 
   final String minibusUsers = 'milestoneusers';
-  final String signatureloguid = 'ketchloguid';
+  final String adtriroadlogploguid = 'ketchloguid';
   final String proofshotqiu = 'ridgepathqiu';
   final String bungalowrec = 'excursionirec';
   final String heckpckemod = 'motorboatdui';
@@ -21,7 +21,7 @@ class PassporTouting {
 
 
   Future<void> _openBoxes() async {
-    await Hive.openBox(signatureloguid);
+    await Hive.openBox(adtriroadlogploguid);
     var monorailUser = await Hive.openBox(minibusUsers);
 
     if (monorailUser.isEmpty) {
