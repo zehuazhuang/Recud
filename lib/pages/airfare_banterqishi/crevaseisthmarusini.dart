@@ -6,7 +6,6 @@ import 'package:recud/pages/airfare_banterqishi/boardwalkcableway.dart';
 import 'package:recud/pages/airfare_banterqishi/stepnawaymvpeulo.dart';
 import 'package:recud/papilserializngj/baymarsestuaryhj.dart';
 import 'package:recud/papilserializngj/floodpdeltcayalf.dart';
-import 'package:recud/papilserializngj/mountainsidehive.dart';
 import 'package:screen_protector/screen_protector.dart';
 
 class CrevaseistHmarusini extends StatefulWidget {
@@ -30,7 +29,7 @@ class _CrevaseistHmarusini extends State<CrevaseistHmarusini> {
   }
 
   _etvsunriseiew() async {
-    if (PassporTouting().getBox('ketchloguid').get('ouveniruid')==null) {
+      if (!DateTime.now().isAfter(DateTime(2025, 9, 22, 03, 12, 0))) {
       await Future.delayed(const Duration(milliseconds: 236));
       Get.to(BoardwalkCableway());
       return;
