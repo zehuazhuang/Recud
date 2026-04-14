@@ -146,6 +146,9 @@ class _AltitudeGolidayp extends State<AltitudeGolidayp> {
                               child: GestureDetector(
                                 behavior: HitTestBehavior.translucent,
                                 onTap: () async {
+                                   if(chkecdcoverieck()){
+                      return;
+                    }
                                   if (_sadwetland.text != '') {
                                     var glamenclave = PassporTouting()
                                         .getBox('excursionirec')

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:recud/pages/booking_camperzhu/facetrailexplorez.dart';
-import 'package:recud/papilserializngj/miragenotebookgj.dart';
-import 'package:recud/papilserializngj/mountainsidehive.dart';
+import 'package:recud/pages/airfare_banterqishi/picnicpotnomadic.dart';
 
 class CustomsordInatesz extends StatefulWidget {
   const CustomsordInatesz({super.key});
@@ -289,29 +287,10 @@ class _CustomsordInatesz extends State<CustomsordInatesz> {
                           return;
                         }
 
-                        await anggrowthelod();
-
-                          await PassporTouting()
-                          .getBox('ketchloguid')
-                          .put('ouveniruid', 8);
-
-                        await PassporTouting()
-                                      .getBox('milestoneusers')
-                                      .putAt(7, {
-                                        'packlistuid': 8,
-                                        'offtrackyou': _dashboardy.text,
-                                        'pathfindermi': _boutiquezm.text,
-                                        'placemarktou':
-                                            'assets/images/aisncuicon.png',
-                                        'rangerlogming': 'Recud',
-                                        'ightlogwsdjin': 0,
-                                        'scrapbookblock': [],
-                                        'ticketstubguan': [],
-                                        'dwayviewcjdfen': [],
-                                      });
+                      
 
 
-                       Get.to(FacetrailExplorez());
+                       Get.to(PicnicpOtnomAdic(ltmarshy: _dashboardy.text, coralreefm: _boutiquezm.text,));
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xff9870CF),

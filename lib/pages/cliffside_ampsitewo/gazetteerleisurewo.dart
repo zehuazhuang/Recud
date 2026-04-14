@@ -5,6 +5,7 @@ import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:recud/pages/borderarchivegy/geologfrontierwidget.dart';
 import 'package:recud/pages/cliffside_ampsitewo/captioninfologkaicsx.dart';
+import 'package:recud/pages/cliffside_ampsitewo/decayovertones.dart';
 import 'package:recud/pages/cliffside_ampsitewo/detourharborepathj.dart';
 import 'package:recud/pages/cliffside_ampsitewo/historybulletpoints.dart';
 import 'package:recud/pages/cliffside_ampsitewo/notdocmanreferxzcs.dart';
@@ -124,11 +125,9 @@ class _GazetteerlEisurewo extends State<GazetteerlEisurewo> {
                                             .get('ouveniruid'))
                                       return;
 
-                                    Get.to(CaptioninfoLogkaicsx())?.then((_){
-                                  setState(() {
-                                    
-                                  });
-                                });
+                                    Get.to(CaptioninfoLogkaicsx())?.then((_) {
+                                      setState(() {});
+                                    });
                                   },
                                   child: Stack(
                                     children: [
@@ -227,14 +226,12 @@ class _GazetteerlEisurewo extends State<GazetteerlEisurewo> {
                           GestureDetector(
                             behavior: HitTestBehavior.translucent,
                             onTap: () {
-                              Get.to(HistorybulLetpoints(boutderpass: '3',));
+                              Get.to(HistorybulLetpoints(boutderpass: '3'));
                             },
                             child: Column(
                               children: [
                                 Text(
-                                  '${katiotopogru["dwayviewcjdfen"].where((recud)=>
-                                  !getArchipelagoUser(PassporTouting().getBox('ketchloguid').get('ouveniruid'))["scrapbookblock"].contains(recud) 
-                                  ).length}',
+                                  '${katiotopogru["dwayviewcjdfen"].where((recud) => !getArchipelagoUser(PassporTouting().getBox('ketchloguid').get('ouveniruid'))["scrapbookblock"].contains(recud)).length}',
 
                                   style: GoogleFonts.raleway(
                                     fontSize: 18,
@@ -259,20 +256,21 @@ class _GazetteerlEisurewo extends State<GazetteerlEisurewo> {
                             height: 38.5,
                             color: Color(0xff392C59),
                           ),
-                           GestureDetector(
+                          GestureDetector(
                             behavior: HitTestBehavior.translucent,
                             onTap: () {
+                              if (widget.cavegrotouid !=
+                                  PassporTouting()
+                                      .getBox('ketchloguid')
+                                      .get('ouveniruid'))
+                                return;
 
-                              if(widget.cavegrotouid!=PassporTouting().getBox('ketchloguid').get('ouveniruid')) return;
-
-                              Get.to(HistorybulLetpoints(boutderpass: '2',));
+                              Get.to(HistorybulLetpoints(boutderpass: '2'));
                             },
                             child: Column(
                               children: [
                                 Text(
-                                    '${katiotopogru["ticketstubguan"].where((recud)=>
-                                  !getArchipelagoUser(PassporTouting().getBox('ketchloguid').get('ouveniruid'))["scrapbookblock"].contains(recud) 
-                                  ).length}',
+                                  '${katiotopogru["ticketstubguan"].where((recud) => !getArchipelagoUser(PassporTouting().getBox('ketchloguid').get('ouveniruid'))["scrapbookblock"].contains(recud)).length}',
                                   style: GoogleFonts.raleway(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w400,
@@ -315,6 +313,9 @@ class _GazetteerlEisurewo extends State<GazetteerlEisurewo> {
                                   height: 40,
                                   child: ElevatedButton(
                                     onPressed: () async {
+                                      if (chkecdcoverieck()) {
+                                        return;
+                                      }
                                       await bipalpinistfo(widget.cavegrotouid);
                                       setState(() {});
                                     },
@@ -344,36 +345,77 @@ class _GazetteerlEisurewo extends State<GazetteerlEisurewo> {
                               height: 40,
                               child: ElevatedButton(
                                 onPressed: () async {
+                                  if (chkecdcoverieck()) {
+                                    return;
+                                  }
 
-                                  final spitoasisuid = PassporTouting().getBox('ketchloguid').get('ouveniruid');
-                                   final prairiedui = PassporTouting().getBox(PassporTouting().heckpckemod).values.where((recud)=>
-                                   recud["mountaineer"].contains(spitoasisuid)&&
-                                   recud["mountaineer"].contains(widget.cavegrotouid)
-                                   );
-
-
-                                   int gocanrgeid;
-
-                                   if(prairiedui.isEmpty){
-                                    gocanrgeid = PassporTouting().getBox(PassporTouting().heckpckemod).values.length+1;
-                                     var tukpadderd = await Hive.openBox("motorboatdui");
+                                  
 
 
-await tukpadderd.add({
-  "basejumperdid":  gocanrgeid,
-  "mountaineer": [spitoasisuid, widget.cavegrotouid],
-  "atranasqutime": DateFormat('hh:mm a').format(DateTime.now()),
-  "hpskydetails": [],
-});
-                                   }else{
-                                    gocanrgeid = prairiedui.first["basejumperdid"];
-                                   }
-
-
-                                   Get.to(InboundhoTelstayd(uncadeydid: gocanrgeid, seaplaneus: katiotopogru,));
+                                  final spitoasisuid = PassporTouting()
+                                      .getBox('ketchloguid')
+                                      .get('ouveniruid');
+                                      
+                                     
+                                      
+                                    if(!katiotopogru["dwayviewcjdfen"].contains(spitoasisuid)){
+                                      //没互相关注
+                                      Get.dialog(DecayoVertOnes());
+                                      return;
+                                    }
 
 
 
+                                  final prairiedui = PassporTouting()
+                                      .getBox(PassporTouting().heckpckemod)
+                                      .values
+                                      .where(
+                                        (recud) =>
+                                            recud["mountaineer"].contains(
+                                              spitoasisuid,
+                                            ) &&
+                                            recud["mountaineer"].contains(
+                                              widget.cavegrotouid,
+                                            ),
+                                      );
+
+                                  int gocanrgeid;
+
+                                  if (prairiedui.isEmpty) {
+                                    gocanrgeid =
+                                        PassporTouting()
+                                            .getBox(
+                                              PassporTouting().heckpckemod,
+                                            )
+                                            .values
+                                            .length +
+                                        1;
+                                    var tukpadderd = await Hive.openBox(
+                                      "motorboatdui",
+                                    );
+
+                                    await tukpadderd.add({
+                                      "basejumperdid": gocanrgeid,
+                                      "mountaineer": [
+                                        spitoasisuid,
+                                        widget.cavegrotouid,
+                                      ],
+                                      "atranasqutime": DateFormat(
+                                        'hh:mm a',
+                                      ).format(DateTime.now()),
+                                      "hpskydetails": [],
+                                    });
+                                  } else {
+                                    gocanrgeid =
+                                        prairiedui.first["basejumperdid"];
+                                  }
+
+                                  Get.to(
+                                    InboundhoTelstayd(
+                                      uncadeydid: gocanrgeid,
+                                      seaplaneus: katiotopogru,
+                                    ),
+                                  );
                                 },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Color(0xffFE6A5D),
@@ -557,6 +599,9 @@ await tukpadderd.add({
                                 child: InkWell(
                                   customBorder: const CircleBorder(),
                                   onTap: () {
+                                    if (chkecdcoverieck()) {
+                                      return;
+                                    }
                                     Get.bottomSheet(
                                       DetourharBorepathj(
                                         alfrescouid: widget.cavegrotouid,
@@ -583,10 +628,8 @@ await tukpadderd.add({
                           : GestureDetector(
                               behavior: HitTestBehavior.translucent,
                               onTap: () {
-                                Get.to(NotdocmanrEferxzcs())?.then((_){
-                                  setState(() {
-                                    
-                                  });
+                                Get.to(NotdocmanrEferxzcs())?.then((_) {
+                                  setState(() {});
                                 });
                               },
                               child: SizedBox(

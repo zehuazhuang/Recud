@@ -146,6 +146,9 @@ class _AutograpHudiolog extends State<AutograpHudiolog> {
                                         height: 40,
                                         child: ElevatedButton(
                                           onPressed: () {
+                                            if(chkecdcoverieck()){
+                      return;
+                    }
                                             Get.to(BeachsidePartureb());
                                           },
                                           style: ElevatedButton.styleFrom(
@@ -323,9 +326,19 @@ class _AutograpHudiolog extends State<AutograpHudiolog> {
                                             children: [
                                               if (!_expedition)
                                                 for (var recud
-                                                    in daytripqiu["cartographyhelp"].where((recud)=>
-                                                    !getArchipelagoUser(PassporTouting().getBox('ketchloguid').get('ouveniruid'))["scrapbookblock"].contains(recud["wayfaringuid"])  
-                                                    
+                                                    in daytripqiu["cartographyhelp"].where(
+                                                      (recud) =>
+                                                          !getArchipelagoUser(
+                                                            PassporTouting()
+                                                                .getBox(
+                                                                  'ketchloguid',
+                                                                )
+                                                                .get(
+                                                                  'ouveniruid',
+                                                                ),
+                                                          )["scrapbookblock"].contains(
+                                                            recud["wayfaringuid"],
+                                                          ),
                                                     ))
                                                   _arrivalplan(recud),
 
@@ -405,6 +418,9 @@ class _AutograpHudiolog extends State<AutograpHudiolog> {
                               child: GestureDetector(
                                 behavior: HitTestBehavior.translucent,
                                 onTap: () async {
+                                  if(chkecdcoverieck()){
+                      return;
+                    }
                                   if (_pathfindercom.text != '') {
                                     var itineraryqiu = PassporTouting()
                                         .getBox('ridgepathqiu')
@@ -490,6 +506,9 @@ class _AutograpHudiolog extends State<AutograpHudiolog> {
                           child: InkWell(
                             customBorder: const CircleBorder(),
                             onTap: () {
+                              if (chkecdcoverieck()) {
+                                return;
+                              }
                               Get.bottomSheet(
                                 DetourharBorepathj(
                                   alfrescouid: daytripqiu["pilgrimageuid"],

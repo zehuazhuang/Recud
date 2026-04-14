@@ -86,7 +86,7 @@ class Fumarplateauvo {
           '189e4e40fe3a4e6835abbe26baf05c5afa9f7115df58485b2a844702dfe97cd5'.broatlaschure(), await Fumarplateauvo().ounquarbired());
 
 
-        
+        print(lstiequinoxce);
 
 
       if (lstiequinoxce != null && lstiequinoxce['da781758c5b339be8a2a737ef9170dee'.broatlaschure()] == "9afd064c3b7c04311780edd640f5e62c".broatlaschure()) {

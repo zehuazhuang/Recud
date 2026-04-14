@@ -19,6 +19,31 @@ class PassporTouting {
     await _openBoxes();
   }
 
+  final String glacierflag = 'glacierflag';
+
+  Future<void> saveGlacierFlag(String value) async {
+  var box = getBox(adtriroadlogploguid);
+  await box.put(glacierflag, value);
+}
+
+String getGlacierFlag() {
+  var box = getBox(adtriroadlogploguid);
+  return box.get(glacierflag, defaultValue: "");
+}
+
+//eula
+  final String signdisplaa = 'signdisplaa';
+
+  Future<void> saveSigndisplaa(String value) async {
+  var box = getBox(adtriroadlogploguid);
+  await box.put(signdisplaa, value);
+}
+
+String getSigndisplaa() {
+  var box = getBox(adtriroadlogploguid);
+  return box.get(signdisplaa, defaultValue: "");
+}
+
 
   Future<void> _openBoxes() async {
     await Hive.openBox(adtriroadlogploguid);
@@ -34,7 +59,7 @@ class PassporTouting {
         'ightlogwsdjin': 0,
         'scrapbookblock': [],
         'ticketstubguan': [2],
-        'dwayviewcjdfen': [5],
+        'dwayviewcjdfen': [5,2],
       });
 
       await monorailUser.add({
@@ -45,7 +70,7 @@ class PassporTouting {
         'rangerlogming': 'Ethan',
         'ightlogwsdjin': 0,
         'scrapbookblock': [],
-        'ticketstubguan': [],
+        'ticketstubguan': [1],
         'dwayviewcjdfen': [1],
       });
 

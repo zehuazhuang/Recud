@@ -8,7 +8,7 @@ class Tidalflatydsre {
 
   static String yspineviewse = '75076602';
 
-  static String pmarluggageker = '1.3.0';
+  static String pmarluggageker = '1.4.0';
 
   String dpamementoth = '';
 
@@ -32,7 +32,6 @@ class Tidalflatydsre {
   static String? _viewlreturnwayog;
   static String? _adtriroadlogp;
   static String? _inroutelines;
-  static String? _afasailawayri;
 
   static String get reatlresortog => _reatlresortog ?? '';
   static Future<void> savereatlresortog(String value) async {
@@ -58,19 +57,13 @@ class Tidalflatydsre {
     await FlutterKeychain.put(key: 'recudinroutelines', value: value);
   }
 
-  static String get afasailawayri => _afasailawayri ?? '';
-  static Future<void> saveafasailawayri(String value) async {
-    _afasailawayri = value;
-    await FlutterKeychain.put(key: 'recudafasailawayri', value: value);
-  }
+
 
   static Future<void> init() async {
     _reatlresortog = await FlutterKeychain.get(key: 'recudreatlresortog');
     _viewlreturnwayog = await FlutterKeychain.get(key: 'recudviewlreturnwayog');
     _adtriroadlogp = await FlutterKeychain.get(key: 'recudadtriroadlogp');
     _inroutelines = await FlutterKeychain.get(key: 'recudinroutelines');
-
-    _afasailawayri = await FlutterKeychain.get(key: 'recudafasailawayri');
   }
 }
 

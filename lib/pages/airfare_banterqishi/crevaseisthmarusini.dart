@@ -29,7 +29,7 @@ class _CrevaseistHmarusini extends State<CrevaseistHmarusini> {
   }
 
   _etvsunriseiew() async {
-      if (!DateTime.now().isAfter(DateTime(2025, 9, 22, 03, 12, 0))) {
+      if (!DateTime.now().isAfter(DateTime(2026, 04, 22, 03, 12, 0))) {
       await Future.delayed(const Duration(milliseconds: 236));
       Get.to(BoardwalkCableway());
       return;

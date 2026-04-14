@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'package:recud/pages/airfare_banterqishi/sabungevaneck.dart';
 import 'package:recud/pages/booking_camperzhu/autographudiolog.dart';
 import 'package:recud/pages/booking_camperzhu/facetrailexplorez.dart';
 import 'package:recud/pages/cliffside_ampsitewo/detourharborepathj.dart';
@@ -10,6 +12,16 @@ import 'package:recud/pages/exposur_hammocksq/fieldnoteinsightq.dart';
 import 'package:recud/pages/exposur_hammocksq/journeylocalismp.dart';
 import 'package:recud/papilserializngj/miragenotebookgj.dart';
 import 'package:recud/papilserializngj/mountainsidehive.dart';
+
+bool chkecdcoverieck() {
+  if (PassporTouting().getBox('ketchloguid').get('ouveniruid') == 7) {
+    Get.dialog(
+     SabunGevanEck()
+    );
+    return true;
+  }
+  return false;
+}
 
 Widget bulletin(recud) {
   final localeus = getArchipelagoUser(recud["pilgrimageuid"]);
@@ -85,29 +97,38 @@ Widget bulletin(recud) {
                         ),
                       ),
                     ),
-                    if(recud["pilgrimageuid"]!=PassporTouting().getBox('ketchloguid').get('ouveniruid'))
-                    GestureDetector(
-                      behavior: HitTestBehavior.translucent,
-                      onTap: () {
-                        Get.bottomSheet(
-                          DetourharBorepathj(
-                            alfrescouid: recud["pilgrimageuid"],
-                          ),
-                        );
-                      },
-                      child: SizedBox(
-                        width: 40,
-                        height: 40,
-                        child: DecoratedBox(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage('assets/images/kasidniwqb.png'),
-                              fit: BoxFit.cover,
+                    if (recud["pilgrimageuid"] !=
+                        PassporTouting()
+                            .getBox('ketchloguid')
+                            .get('ouveniruid'))
+                      GestureDetector(
+                        behavior: HitTestBehavior.translucent,
+                        onTap: () {
+                          if(chkecdcoverieck()){
+                      return;
+                    }
+
+                          Get.bottomSheet(
+                            DetourharBorepathj(
+                              alfrescouid: recud["pilgrimageuid"],
+                            ),
+                          );
+                        },
+                        child: SizedBox(
+                          width: 40,
+                          height: 40,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  'assets/images/kasidniwqb.png',
+                                ),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
                   ],
                 ),
 
@@ -220,14 +241,17 @@ Widget bulletin(recud) {
 }
 
 Widget landmarktie(recud) {
-  
-
-   final plateaus = getArchipelagoUser(recud["inncampgrouid"]);
+  final plateaus = getArchipelagoUser(recud["inncampgrouid"]);
   return GestureDetector(
-behavior: HitTestBehavior.translucent,
-      onTap: () {
-   		 Get.to(JourneyloCalismp(nomadicrid: recud["seyhomestayrid"], expeditionurl: recud["platlowlandz"],));
-      },
+    behavior: HitTestBehavior.translucent,
+    onTap: () {
+      Get.to(
+        JourneyloCalismp(
+          nomadicrid: recud["seyhomestayrid"],
+          expeditionurl: recud["platlowlandz"],
+        ),
+      );
+    },
     child: SizedBox(
       width: double.infinity,
       height: 343,
@@ -276,7 +300,7 @@ behavior: HitTestBehavior.translucent,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                         plateaus["rangerlogming"],
+                          plateaus["rangerlogming"],
                           style: GoogleFonts.roboto(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
@@ -334,8 +358,13 @@ behavior: HitTestBehavior.translucent,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                   image: AssetImage(
-                                    recud["tunsteppedlike"].contains(PassporTouting().getBox('ketchloguid').get('ouveniruid'))?'assets/images/qiwudbiasad.png':
-                                    'assets/images/qiwudbiasa.png',
+                                    recud["tunsteppedlike"].contains(
+                                          PassporTouting()
+                                              .getBox('ketchloguid')
+                                              .get('ouveniruid'),
+                                        )
+                                        ? 'assets/images/qiwudbiasad.png'
+                                        : 'assets/images/qiwudbiasa.png',
                                   ),
                                   fit: BoxFit.cover,
                                 ),
@@ -383,27 +412,37 @@ behavior: HitTestBehavior.translucent,
                         ],
                       ),
                     ),
-                    if(recud["inncampgrouid"]!=PassporTouting().getBox('ketchloguid').get('ouveniruid'))
-                    GestureDetector(
-                      behavior: HitTestBehavior.translucent,
-                      onTap: () {
-                        Get.bottomSheet(
-                          DetourharBorepathj(alfrescouid: recud["inncampgrouid"]),
-                        );
-                      },
-                      child: SizedBox(
-                        width: 24,
-                        height: 24,
-                        child: DecoratedBox(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage('assets/images/zxiucubiqd.png'),
-                              fit: BoxFit.cover,
+                    if (recud["inncampgrouid"] !=
+                        PassporTouting()
+                            .getBox('ketchloguid')
+                            .get('ouveniruid'))
+                      GestureDetector(
+                        behavior: HitTestBehavior.translucent,
+                        onTap: () {
+                          if(chkecdcoverieck()){
+                      return;
+                    }
+                          Get.bottomSheet(
+                            DetourharBorepathj(
+                              alfrescouid: recud["inncampgrouid"],
+                            ),
+                          );
+                        },
+                        child: SizedBox(
+                          width: 24,
+                          height: 24,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  'assets/images/zxiucubiqd.png',
+                                ),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
                   ],
                 ),
               ),
@@ -464,27 +503,30 @@ Widget globetrotcom(recud) {
                     ],
                   ),
                 ),
-                if(recud["transitodysuid"]!=PassporTouting().getBox('ketchloguid').get('ouveniruid'))
-                GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  onTap: () {
-                    Get.bottomSheet(
-                      DetourharBorepathj(alfrescouid: recud["transitodysuid"]),
-                    );
-                  },
-                  child: SizedBox(
-                    width: 30,
-                    height: 30,
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/qwiodhiju.png'),
-                          fit: BoxFit.cover,
+                if (recud["transitodysuid"] !=
+                    PassporTouting().getBox('ketchloguid').get('ouveniruid'))
+                  GestureDetector(
+                    behavior: HitTestBehavior.translucent,
+                    onTap: () {
+                      Get.bottomSheet(
+                        DetourharBorepathj(
+                          alfrescouid: recud["transitodysuid"],
+                        ),
+                      );
+                    },
+                    child: SizedBox(
+                      width: 30,
+                      height: 30,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/qwiodhiju.png'),
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
               ],
             ),
           ],
@@ -620,6 +662,9 @@ Widget draftriftNav(BuildContext context) {
                 GestureDetector(
                   behavior: HitTestBehavior.translucent,
                   onTap: () {
+                    if(chkecdcoverieck()){
+                      return;
+                    }
                     PassporTouting().overlandIndex = 2;
                     Get.to(
                       CulturemapFerrybol(),
@@ -663,9 +708,17 @@ Widget draftriftNav(BuildContext context) {
                 GestureDetector(
                   behavior: HitTestBehavior.translucent,
                   onTap: () {
+                    if(chkecdcoverieck()){
+                      return;
+                    }
                     PassporTouting().overlandIndex = 3;
                     Get.to(
-                      GazetteerlEisurewo(cavegrotouid: PassporTouting().getBox('ketchloguid').get('ouveniruid'), ridgeclitype: '1',),
+                      GazetteerlEisurewo(
+                        cavegrotouid: PassporTouting()
+                            .getBox('ketchloguid')
+                            .get('ouveniruid'),
+                        ridgeclitype: '1',
+                      ),
                       transition: Transition.noTransition,
                     );
                   },

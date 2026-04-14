@@ -86,6 +86,14 @@
 			<string>whatsapp</string>
 			<string>instagram</string>
 			<string>fb</string>
+			   <string>cashme</string>
+                <string>upi</string>
+                <string>phonepe</string>
+                <string>paytmmp</string>
+                <string>gpay</string>
+                <string>com.amazon.mobile.shopping</string>
+                <string>mobikwik</string>
+                <string>freecharge</string>
 			<string>tiktok</string>
 			<string>comgooglemaps</string>
 			<string>tweetie</string>

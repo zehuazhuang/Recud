@@ -78,6 +78,9 @@ class _FieldnoteInsightq extends State<FieldnoteInsightq> {
                       GestureDetector(
                         behavior: HitTestBehavior.translucent,
                         onTap: () {
+                              if(chkecdcoverieck()){
+                      return;
+                    }
                           Get.to(GuidebookHubcityt());
                         },
                         child: SizedBox(
@@ -127,6 +130,9 @@ class _FieldnoteInsightq extends State<FieldnoteInsightq> {
                               child: GestureDetector(
                                 behavior: HitTestBehavior.translucent,
                                 onTap: () {
+                                      if(chkecdcoverieck()){
+                      return;
+                    }
                                   Get.to(LatitudeMapbookf());
                                 },
                                 child: SizedBox(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:recud/pages/borderarchivegy/geologfrontierwidget.dart';
 import 'package:recud/pages/cliffside_ampsitewo/detourharborepathj.dart';
 import 'package:recud/pages/cliffside_ampsitewo/gazetteerleisurewo.dart';
 import 'package:recud/pages/exposur_hammocksq/altitudeholidayp.dart';
@@ -154,6 +155,9 @@ class _JourneyloCalismp extends State<JourneyloCalismp> {
                             child: InkWell(
                               customBorder: const CircleBorder(),
                               onTap: () {
+                                if(chkecdcoverieck()){
+                      return;
+                    }
                                 Get.bottomSheet(
                                   DetourharBorepathj(
                                     alfrescouid: jetlagreco["inncampgrouid"],
@@ -206,6 +210,9 @@ class _JourneyloCalismp extends State<JourneyloCalismp> {
                                     GestureDetector(
                                       behavior: HitTestBehavior.translucent,
                                       onTap: () async {
+                                         if(chkecdcoverieck()){
+                      return;
+                    }
                                         var embarkcun = PassporTouting()
                                             .getBox('excursionirec')
                                             .getAt(widget.nomadicrid - 1);
