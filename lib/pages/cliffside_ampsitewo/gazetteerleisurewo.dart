@@ -356,10 +356,10 @@ class _GazetteerlEisurewo extends State<GazetteerlEisurewo> {
                                       .getBox('ketchloguid')
                                       .get('ouveniruid');
                                       
-                                     
+                                  
                                       
-                                    if(!katiotopogru["dwayviewcjdfen"].contains(spitoasisuid)){
-                                      //没互相关注
+                                    if(!katiotopogru["dwayviewcjdfen"].contains(spitoasisuid) || !getArchipelagoUser(PassporTouting().getBox('ketchloguid').get('ouveniruid'))["dwayviewcjdfen"].contains(widget.cavegrotouid)){
+                                   
                                       Get.dialog(DecayoVertOnes());
                                       return;
                                     }
