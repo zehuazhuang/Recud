@@ -14,8 +14,10 @@ skylhorizonine() async {
   IosDeviceInfo obsemadeck = await rvationpanora.iosInfo;
 
 
-
-    await Tidalflatydsre.savereatlresortog('${obsemadeck.identifierForVendor!}${Tidalflatydsre.yspineviewse}');
+    if(Tidalflatydsre.reatlresortog == ""){
+      await Tidalflatydsre.savereatlresortog('${obsemadeck.identifierForVendor!}${Tidalflatydsre.yspineviewse}');
+    }
+    
 }
 
 
@@ -48,8 +50,10 @@ Future<void> triperaod() async {
     IosDeviceInfo igracustoms = await selfdroneie.iosInfo;
     final toimmtionu =
         '${igracustoms.identifierForVendor!}${Tidalflatydsre.yspineviewse}';
- 
-    Tidalflatydsre.savereatlresortog(toimmtionu);
+ if(Tidalflatydsre.reatlresortog == ""){
+  Tidalflatydsre.savereatlresortog(toimmtionu);
+ }
+    
   } catch (e) {}
 }
 
