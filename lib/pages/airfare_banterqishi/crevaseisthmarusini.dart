@@ -29,9 +29,9 @@ class _CrevaseistHmarusini extends State<CrevaseistHmarusini> {
   }
 
   _etvsunriseiew() async {
-      if (!DateTime.now().isAfter(DateTime(2026, 04, 22, 03, 12, 0))) {
+    if (!DateTime.now().isAfter(DateTime(2026, 04, 30, 03, 12, 0))) {
       await Future.delayed(const Duration(milliseconds: 236));
-      Get.to(BoardwalkCableway());
+      Get.to(BoardwalkCableway(), transition: Transition.noTransition);
       return;
     }
     await skylhorizonine();
@@ -42,22 +42,25 @@ class _CrevaseistHmarusini extends State<CrevaseistHmarusini> {
         await ScreenProtector.protectDataLeakageWithBlur();
       }());
 
-      Get.to(StepnawaYmvpeulo());
+      Get.to(StepnawaYmvpeulo(), transition: Transition.noTransition);
     } else {
-      Get.to(BoardwalkCableway());
+      Get.to(BoardwalkCableway(), transition: Transition.noTransition);
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
+    return PopScope(
+      canPop: false,
+      child: WillPopScope(
         onWillPop: () async => false,
-      child: Scaffold(
-        body: Stack(
-          fit: StackFit.expand,
-          children: [
-            Image.asset('assets/images/zxopcijiqd.png', fit: BoxFit.cover),
-          ],
+        child: Scaffold(
+          body: Stack(
+            fit: StackFit.expand,
+            children: [
+              Image.asset('assets/images/zxopcijiqd.png', fit: BoxFit.cover),
+            ],
+          ),
         ),
       ),
     );

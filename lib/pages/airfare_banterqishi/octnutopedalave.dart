@@ -102,6 +102,7 @@ class _OctnuTopedAlave extends State<OctnuTopedAlave> {
                             height: 49,
                             child: ElevatedButton(
                               onPressed: () async {
+                                PassporTouting().saveSigndisplaa("");
                                 Get.back();
                               },
                               style: ElevatedButton.styleFrom(

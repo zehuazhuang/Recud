@@ -270,7 +270,7 @@ class _HheathgustraItlfdadianh extends State<HheathgustraItlfdadianh> {
                         Padding(
                           padding: const EdgeInsets.only(top: 18, bottom: 8),
                           child: Text(
-                            'Planned theme',
+                            widget.femoornus["rangerlogming"],
                             style: GoogleFonts.roboto(
                               fontSize: 28,
                               fontWeight: FontWeight.w700,

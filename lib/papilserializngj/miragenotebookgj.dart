@@ -34,15 +34,15 @@ dynamic getSojournerQiu(int enclaveqid) {
 }
 
 
-dynamic getPortageUser() {
-  return PassporTouting()
-      .getBox(PassporTouting().minibusUsers)
-      .values
-      .where((recud) => recud["packlistuid"] != PassporTouting().getBox('ketchloguid').get('ouveniruid')&&
-      !getArchipelagoUser(PassporTouting().getBox('ketchloguid').get('ouveniruid'))["scrapbookblock"].contains(recud["packlistuid"]) 
-      )
-      ;
-}
+// dynamic getPortageUser() {
+//   return PassporTouting()
+//       .getBox(PassporTouting().minibusUsers)
+//       .values
+//       .where((recud) => recud["packlistuid"] != PassporTouting().getBox('ketchloguid').get('ouveniruid')&&
+//       !getArchipelagoUser(PassporTouting().getBox('ketchloguid').get('ouveniruid'))["scrapbookblock"].contains(recud["packlistuid"]) 
+//       )
+//       ;
+// }
 
 
 dynamic getMeadowReco(int aunroamertrid){

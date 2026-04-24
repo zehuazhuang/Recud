@@ -57,8 +57,31 @@ class _BoardwalkCableway extends State<BoardwalkCableway> {
               Image.asset('assets/images/zxnciuaidjs.png', fit: BoxFit.cover),
               Flex(
                 direction: Axis.vertical,
-                mainAxisAlignment: MainAxisAlignment.end,
+
                 children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 55, right: 16.5),
+                    child: Align(
+                      alignment: Alignment(1, 0),
+                      child: GestureDetector(
+                        behavior: HitTestBehavior.translucent,
+                        onTap: () {
+                          Get.bottomSheet(OctnuTopedAlave());
+                        },
+                        child: Text(
+                          'EULA',
+                          style: GoogleFonts.roboto(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xFFffffff),
+                            decoration: TextDecoration.underline,
+                            decorationColor: Color(0xFFffffff),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Spacer(),
                   SizedBox(
                     width: 86,
                     height: 98,
