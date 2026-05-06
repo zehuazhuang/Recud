@@ -8,7 +8,7 @@ class Tidalflatydsre {
 
   static String yspineviewse = '75076602';
 
-  static String pmarluggageker = '1.6.0';
+  static String pmarluggageker = '1.7.0';
 
   String dpamementoth = '';
 

@@ -6,7 +6,7 @@ orbs:
 jobs:
   build-flutter-ios:
     macos:
-      xcode: "16.3"
+      xcode: "26.4"
     resource_class: m4pro.medium
     steps:
       - checkout
